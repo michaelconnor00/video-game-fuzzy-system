@@ -1,3 +1,5 @@
+package fuzzysys;
+
 /**
  * Class that contains the Inference logic
  * Created by michaelconnor on 2016-03-20.

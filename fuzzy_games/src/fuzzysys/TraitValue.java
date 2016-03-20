@@ -1,3 +1,5 @@
+package fuzzysys;
+
 /**
  * Enum for standard trait values
  * Created by michaelconnor on 2016-03-20.

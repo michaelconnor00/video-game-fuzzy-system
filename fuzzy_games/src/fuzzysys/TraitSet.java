@@ -1,3 +1,5 @@
+package fuzzysys;
+
 import java.util.HashMap;
 
 /**
