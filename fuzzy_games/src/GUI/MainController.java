@@ -77,12 +77,67 @@ public class MainController extends Application {
         }
     }
 
+    //getters
+
+    public int getPatience()
+    {
+        return patience;
+    }
+
+    public int getReactionTime()
+    {
+        return reactionTime;
+    }
+
+    public int getCompetitiveness()
+    {
+        return competitiveness;
+    }
+
+    public int getCooperation()
+    {
+        return cooperation;
+    }
+
+    public int getAttentionToDetail()
+    {
+        return attentionToDetail;
+    }
+
+    public int getAnxiety()
+    {
+        return anxiety;
+    }
+
+    public int getPlanning()
+    {
+        return planning;
+    }
+
+    public int getPersistence()
+    {
+        return persistence;
+    }
+
+    public int getExcitement()
+    {
+        return excitement;
+    }
+
     //controls the save button functionality
+    //updates all trait variables
     @FXML
     private void handleSaveButton()
     {
         patience = (int) patienceSlider.getValue();
-        System.out.print(patience);
+        reactionTime = (int) reactionTimeSlider.getValue();
+        competitiveness = (int) competitivenessSlider.getValue();
+        attentionToDetail = (int) attentionToDetailSlider.getValue();
+        anxiety = (int) anxietySlider.getValue();
+        planning = (int) planningSlider.getValue();
+        cooperation = (int) cooperationSlider.getValue();
+        excitement = (int) excitementSlider.getValue();
+        persistence = (int) persistenceSlider.getValue();
     }
 
 
