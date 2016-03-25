@@ -40,7 +40,7 @@ public enum Genre {
 
     }
 
-    private HashMap<BehaviouralTraits, Trait> traitSet;
+    private HashMap<BehaviouralTraits, Double> traitSet;
 
     public HashMap getInitTraitSet(){
         return this.traitSet;
@@ -48,7 +48,7 @@ public enum Genre {
 
     private void initRPGSet(){
         this.traitSet = new HashMap<>();
-        this.traitSet.put(BehaviouralTraits.ANXIETY, new Trait(new int[] {2, 2, 3, 4, 5}));
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 0.0);  // TODO Like this
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, new Trait(new int[] {1, 2, 3, 4, 5}));
         this.traitSet.put(BehaviouralTraits.PATIENCE, new Trait(new int[] {1, 2, 3, 4, 5}));
         this.traitSet.put(BehaviouralTraits.REACTIONTIME, new Trait(new int[] {1, 2, 3, 4, 5}));
