@@ -8,12 +8,12 @@ import java.util.HashMap;
  */
 public enum Genre {
     ROLEPLAYING("RPG"),
-    SHOOTER("SHT"),
+    SHOOTER("FPS"),
     STRATEGYRTS("RTS"),
-    STRATEGYTURNBASED("STB"),
+    STRATEGYTURNBASED("TBS"),
     SIMULATION("SIM"),
     SPORTS("SPT"),
-    FIGHTING("FIT");
+    FIGHTING("FIG");
 
     Genre(String name){
         // TODO Add remaining functions
@@ -21,18 +21,23 @@ public enum Genre {
             case "RPG":
                 initRPGSet();
                 break;
-            case "SHT":
+            case "FPS":
+                initShooterSet();
                 break;
             case "RTS":
+                initRTSSet();
                 break;
-            case "STB":
+            case "TBS":
+                initTBSSet();
                 break;
             case "SIM":
                 initSimulationSet();
                 break;
             case "SPT":
+                initSportSet();
                 break;
-            case "FIT":
+            case "FIG":
+                initFightingSet();
                 break;
             default:
                 break;
@@ -48,29 +53,93 @@ public enum Genre {
 
     private void initRPGSet(){
         this.traitSet = new HashMap<>();
-        this.traitSet.put(BehaviouralTraits.ANXIETY, 0.0);  // TODO Like this
-        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.PATIENCE, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.REACTIONTIME, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.PERSISTANCE, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.EXCITEMENT, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.PLANNING, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.TEAMWORK, new Trait(new int[] {1, 2, 3, 4, 5}));
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 4.0);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 4.5);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 4.0);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 1.0);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 4.0);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 2.0);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 1.0);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 3.5);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 1.0);
     }
 
     private void initSimulationSet(){
         this.traitSet = new HashMap<>();
-        this.traitSet.put(BehaviouralTraits.ANXIETY, new Trait(new int[] {1, 1, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.PATIENCE, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.REACTIONTIME, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.PERSISTANCE, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.EXCITEMENT, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.PLANNING, new Trait(new int[] {1, 2, 3, 4, 5}));
-        this.traitSet.put(BehaviouralTraits.TEAMWORK, new Trait(new int[] {1, 2, 3, 4, 5}));
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 5.0);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 4.0);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 4.5);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 1.5);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 4.0);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 1.0);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 1.0);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 3.5);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 1.0);
     }
 
+    private void initShooterSet(){
+        this.traitSet = new HashMap<>();
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 1.5);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 2.0);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 1.0);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 5.0);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 3.0);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 5.0);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 5.0);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 2.5);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 5.0);
+    }
+
+    private void initRTSSet(){
+        this.traitSet = new HashMap<>();
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 4.0);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 3.0);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 3.5);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 4.0);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 3.5);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 3.0);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 4.0);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 5.0);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 3.0);
+    }
+
+    private void initTBSSet(){
+        this.traitSet = new HashMap<>();
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 5.0);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 5.0);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 5.0);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 1.0);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 5.0);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 2.0);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 2.5);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 5.0);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 2.0);
+    }
+
+    private void initSportSet(){
+        this.traitSet = new HashMap<>();
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 4.5);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 4.0);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 2.0);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 4.0);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 2.0);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 4.5);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 5.0);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 2.0);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 2.0);
+    }
+
+    private void initFightingSet(){
+        this.traitSet = new HashMap<>();
+        this.traitSet.put(BehaviouralTraits.ANXIETY, 1.0);
+        this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 2.0);
+        this.traitSet.put(BehaviouralTraits.PATIENCE, 1.0);
+        this.traitSet.put(BehaviouralTraits.REACTIONTIME, 5.0);
+        this.traitSet.put(BehaviouralTraits.PERSISTANCE, 3.0);
+        this.traitSet.put(BehaviouralTraits.EXCITEMENT, 5.0);
+        this.traitSet.put(BehaviouralTraits.COMPETITIVENESS, 5.0);
+        this.traitSet.put(BehaviouralTraits.PLANNING, 1.0);
+        this.traitSet.put(BehaviouralTraits.TEAMWORK, 1.0);
+    }
     // TODO add more functions
 }
