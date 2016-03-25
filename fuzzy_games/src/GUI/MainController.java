@@ -38,15 +38,15 @@ public class MainController extends Application {
     private Slider persistenceSlider;
 
     //working memory variables
-    private int patience;
-    private int reactionTime;
-    private int competitiveness;
-    private int attentionToDetail;
-    private int anxiety;
-    private int planning;
-    private int cooperation;
-    private int excitement;
-    private int persistence;
+    private double patience;
+    private double reactionTime;
+    private double competitiveness;
+    private double attentionToDetail;
+    private double anxiety;
+    private double planning;
+    private double cooperation;
+    private double excitement;
+    private double persistence;
 
 
     private Stage primaryStage;
@@ -79,67 +79,56 @@ public class MainController extends Application {
 
     //getters
 
-    public int getPatience()
-    {
+    public double getPatience() {
         return patience;
     }
 
-    public int getReactionTime()
-    {
+    public double getReactionTime() {
         return reactionTime;
     }
 
-    public int getCompetitiveness()
-    {
+    public double getCompetitiveness() {
         return competitiveness;
     }
 
-    public int getCooperation()
-    {
+    public double getCooperation() {
         return cooperation;
     }
 
-    public int getAttentionToDetail()
-    {
+    public double getAttentionToDetail() {
         return attentionToDetail;
     }
 
-    public int getAnxiety()
-    {
+    public double getAnxiety() {
         return anxiety;
     }
 
-    public int getPlanning()
-    {
+    public double getPlanning() {
         return planning;
     }
 
-    public int getPersistence()
-    {
+    public double getPersistence() {
         return persistence;
     }
 
-    public int getExcitement()
-    {
+    public double getExcitement() {
         return excitement;
     }
 
     //controls the save button functionality
     //updates all trait variables
     @FXML
-    private void handleSaveButton()
-    {
-        patience = (int) patienceSlider.getValue();
-        reactionTime = (int) reactionTimeSlider.getValue();
-        competitiveness = (int) competitivenessSlider.getValue();
-        attentionToDetail = (int) attentionToDetailSlider.getValue();
-        anxiety = (int) anxietySlider.getValue();
-        planning = (int) planningSlider.getValue();
-        cooperation = (int) cooperationSlider.getValue();
-        excitement = (int) excitementSlider.getValue();
-        persistence = (int) persistenceSlider.getValue();
+    private void handleSaveButton() {
+        patience = patienceSlider.getValue();
+        reactionTime = reactionTimeSlider.getValue();
+        competitiveness = competitivenessSlider.getValue();
+        attentionToDetail = attentionToDetailSlider.getValue();
+        anxiety = anxietySlider.getValue();
+        planning = planningSlider.getValue();
+        cooperation = cooperationSlider.getValue();
+        excitement = excitementSlider.getValue();
+        persistence = persistenceSlider.getValue();
     }
-
 
 
 }
