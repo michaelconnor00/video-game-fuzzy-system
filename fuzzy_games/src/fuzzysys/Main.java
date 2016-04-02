@@ -9,6 +9,7 @@ public class Main {
 
         TraitValue anxity, atenchen,patence,reactionTime,persistance,exitment,competativeness,planning,teamwork;
         TraitValue[][] table = new TraitValue[19683][9];
+        /*
         int count=0;
         for(int i1=0;i1<3; i1++){
             for(int i2=0;i2<3;i2++){
@@ -19,68 +20,113 @@ public class Main {
                                 for(int i7=0;i7<3; i7++){
                                     for(int i8=0;i8<3;i8++){
                                         for(int i9=0;i9<3;i9++){
-                                            if(i1==0){
-                                                table[count][0]=TraitValue.INEPT;
-                                            }else if(i1==1){
-                                                table[count][0]=TraitValue.HIGH;
-                                            }else if(i1==2){
-                                                table[count][0]=TraitValue.GODLIKE;
+                                            //index i1 maps to ANXIETY
+                                            switch (i1) {
+                                                case 0:
+                                                    table[count][0] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][0] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][0] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i2==0){
-                                                table[count][1]=TraitValue.INEPT;
-                                            }else if(i2==1){
-                                                table[count][1]=TraitValue.HIGH;
-                                            }else if(i2==2){
-                                                table[count][1]=TraitValue.GODLIKE;
+                                            //index i2 maps to ATTENTIONTODETAIL
+                                            switch (i2) {
+                                                case 0:
+                                                    table[count][1] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][1] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][1] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i3==0){
-                                                table[count][2]=TraitValue.INEPT;
-                                            }else if(i3==1){
-                                                table[count][2]=TraitValue.HIGH;
-                                            }else if(i3==2){
-                                                table[count][2]=TraitValue.GODLIKE;
+                                            //index i3 maps to PATIENCE
+                                            switch (i3) {
+                                                case 0:
+                                                    table[count][2] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][2] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][2] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i4==0){
-                                                table[count][3]=TraitValue.INEPT;
-                                            }else if(i4==1){
-                                                table[count][3]=TraitValue.HIGH;
-                                            }else if(i4==2){
-                                                table[count][3]=TraitValue.GODLIKE;
+                                            //index i4 maps to REACTIONTIME
+                                            switch (i4) {
+                                                case 0:
+                                                    table[count][3] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][3] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][3] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i5==0){
-                                                table[count][4]=TraitValue.INEPT;
-                                            }else if(i5==1){
-                                                table[count][4]=TraitValue.HIGH;
-                                            }else if(i5==2){
-                                                table[count][4]=TraitValue.GODLIKE;
+                                            // index i5 maps to PERSISTANCE
+                                            switch (i5) {
+                                                case 0:
+                                                    table[count][4] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][4] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][4] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i6==0){
-                                                table[count][5]=TraitValue.INEPT;
-                                            }else if(i6==1){
-                                                table[count][5]=TraitValue.HIGH;
-                                            }else if(i6==2){
-                                                table[count][5]=TraitValue.GODLIKE;
+                                            //index i6 maps to EXCITEMENT
+                                            switch (i6) {
+                                                case 0:
+                                                    table[count][5] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][5] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][5] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i7==0){
-                                                table[count][6]=TraitValue.INEPT;
-                                            }else if(i7==1){
-                                                table[count][6]=TraitValue.HIGH;
-                                            }else if(i7==2){
-                                                table[count][6]=TraitValue.GODLIKE;
+                                            // index i7 maps to COMPETITIVENESS
+                                            switch (i7) {
+                                                case 0:
+                                                    table[count][6] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][6] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][6] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i8==0){
-                                                table[count][7]=TraitValue.INEPT;
-                                            }else if(i8==1){
-                                                table[count][7]=TraitValue.HIGH;
-                                            }else if(i8==2){
-                                                table[count][7]=TraitValue.GODLIKE;
+                                            // index i8 maps to PLANNING
+                                            switch (i8) {
+                                                case 0:
+                                                    table[count][7] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][7] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][7] = TraitValue.GODLIKE;
+                                                    break;
                                             }
-                                            if(i9==0){
-                                                table[count][8]=TraitValue.INEPT;
-                                            }else if(i9==1){
-                                                table[count][8]=TraitValue.HIGH;
-                                            }else if(i9==2){
-                                                table[count][8]=TraitValue.GODLIKE;
+                                            // index i9 maps to TEAMWORK
+                                            switch (i9) {
+                                                case 0:
+                                                    table[count][8] = TraitValue.INEPT;
+                                                    break;
+                                                case 1:
+                                                    table[count][8] = TraitValue.HIGH;
+                                                    break;
+                                                case 2:
+                                                    table[count][8] = TraitValue.GODLIKE;
+                                                    break;
                                             }
                                             System.out.println(count);
                                             count++;
@@ -97,5 +143,6 @@ public class Main {
        for(int x=0;x<19683;x++){
             System.out.println(table[x][0]+"|"+table[x][1]+"|"+table[x][2]+"|"+table[x][3]+"|"+table[x][4]+"|"+table[x][5]+"|"+table[x][6]+"|"+table[x][7]+"|"+table[x][8]+"|");
         }
+        */
     }
 }

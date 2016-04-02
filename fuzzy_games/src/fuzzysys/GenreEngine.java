@@ -1,5 +1,7 @@
 package fuzzysys;
 
+import GUI.MainController;
+
 /**
  * Class that contains the Inference logic
  * Created by michaelconnor on 2016-03-20.
@@ -11,6 +13,7 @@ public class GenreEngine {
     }
 
     // TODO add fuzzification function
+
     // TODO add defuzzification method
     // TODO read each rule base and find output 
 

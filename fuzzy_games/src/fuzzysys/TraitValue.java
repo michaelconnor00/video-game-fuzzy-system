@@ -5,11 +5,11 @@ package fuzzysys;
  * Created by michaelconnor on 2016-03-20.
  */
 public enum TraitValue {
-    INEPT("Inept..."), // Lowest
-    LOW("Embarrassing"),
-    AVERAGE("I can get by"),
-    HIGH("Bring it on"),
-    GODLIKE("God Like!"); // Highest
+
+    FAR("big difernce"),//great differince between user value and arch type
+    NEAR("small diferince"),//small differince between user value and arch type
+    PERFECT("perfict match");//no differince between user value and arch type
+
 
     private String displayName;
 
