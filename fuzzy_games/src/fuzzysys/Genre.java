@@ -16,7 +16,6 @@ public enum Genre {
     FIGHTING("FIG");
 
     Genre(String name){
-        // TODO Add remaining functions
         switch(name) {
             case "RPG":
                 initRPGSet();
