@@ -15,7 +15,9 @@ public class GenreEngine {
     // TODO add fuzzification function
 
     // TODO add defuzzification method
-    // TODO read each rule base and find output 
+    // TODO read each rule base and find output
+
+
 
     public Genre getGenre(int[] userTraitValues){
         for (Genre gen : Genre.values()){

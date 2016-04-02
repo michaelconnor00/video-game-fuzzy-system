@@ -45,6 +45,7 @@ public enum Genre {
     }
 
     private HashMap<BehaviouralTraits, Double> traitSet;
+    private Rule[] rules;
 
     public HashMap getInitTraitSet(){
         return this.traitSet;
@@ -52,6 +53,7 @@ public enum Genre {
 
     private void initRPGSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 4.0);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 4.5);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 4.0);
@@ -65,6 +67,7 @@ public enum Genre {
 
     private void initSimulationSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 5.0);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 4.0);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 4.5);
@@ -78,6 +81,7 @@ public enum Genre {
 
     private void initShooterSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 1.5);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 2.0);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 1.0);
@@ -91,6 +95,7 @@ public enum Genre {
 
     private void initRTSSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 4.0);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 3.0);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 3.5);
@@ -104,6 +109,7 @@ public enum Genre {
 
     private void initTBSSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 5.0);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 5.0);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 5.0);
@@ -117,6 +123,7 @@ public enum Genre {
 
     private void initSportSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 4.5);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 4.0);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 2.0);
@@ -130,6 +137,7 @@ public enum Genre {
 
     private void initFightingSet(){
         this.traitSet = new HashMap<>();
+        this.rules = new Rule[3];
         this.traitSet.put(BehaviouralTraits.ANXIETY, 1.0);
         this.traitSet.put(BehaviouralTraits.ATTENTIONTODETAIL, 2.0);
         this.traitSet.put(BehaviouralTraits.PATIENCE, 1.0);
