@@ -19,37 +19,13 @@ public enum TraitValue {
     private double getMembership(double x){
         switch (this.name()){
             case "HIGH":
-                return highMembershipFunc(x);
+                return Functions.BASE.highMembershipFunc(x);
             case "LOW":
-                return lowMembershipFunc(x);
+                return Functions.BASE.lowMembershipFunc(x);
             case "MEDIUM":
-                return mediumMembershipFunc(x);
+                return Functions.BASE.mediumMembershipFunc(x);
         }
         return -1.0;
-    }
-
-    private double highMembershipFunc(double x){
-        if (x <= 2.0){
-            return 0.0;
-        }
-
-        return (x - 2.0) / 2.0;
-    }
-
-    private double lowMembershipFunc(double x){
-        if (x >= 2.0){
-            return 0.0;
-        }
-
-        return (2.0 - x) / 2.0;
-    }
-
-    private double mediumMembershipFunc(double x){
-        if (x <= 2.0){
-            return x / 2.0;
-        }
-
-        return (4.0 - x) / 2.0;
     }
 
     public String toString(){
