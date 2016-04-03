@@ -56,21 +56,42 @@ public enum Genre {
         this.rules = new Rule[3];
         //parameters for love it rule
         this.rules[0] = new Rule();
-        this.rules[0].setAnxietyValue(TraitValue.HIGH);this.rules[0].setAttentionToDetailValue(TraitValue.HIGH);this.rules[0].setPatienceValue(TraitValue.HIGH);
-        this.rules[0].setReactionTimeValue(TraitValue.MEDIUM);this.rules[0].setPersistenceValue(TraitValue.HIGH);this.rules[0].setExcitementValue(TraitValue.LOW);
-        this.rules[0].setCompetitiveValue(TraitValue.LOW);this.rules[0].setPlanningValue(TraitValue.MEDIUM);this.rules[0].setTeamworkValue(TraitValue.LOW);
+        this.rules[0].setAnxietyValue(TraitValue.HIGH);
+        this.rules[0].setAttentionToDetailValue(TraitValue.HIGH);
+        this.rules[0].setPatienceValue(TraitValue.HIGH);
+        this.rules[0].setReactionTimeValue(TraitValue.MEDIUM);
+        this.rules[0].setPersistenceValue(TraitValue.HIGH);
+        this.rules[0].setExcitementValue(TraitValue.LOW);
+        this.rules[0].setCompetitiveValue(TraitValue.LOW);
+        this.rules[0].setPlanningValue(TraitValue.MEDIUM);
+        this.rules[0].setTeamworkValue(TraitValue.LOW);
+
         this.rules[0].setCompatibilitySet(Compatibility.LOVE);
         //parameters for OK level
         this.rules[1] = new Rule();
-        this.rules[1].setAnxietyValue(TraitValue.MEDIUM);this.rules[1].setAttentionToDetailValue(TraitValue.MEDIUM);this.rules[1].setPatienceValue(TraitValue.MEDIUM);
-        this.rules[1].setReactionTimeValue(TraitValue.MEDIUM);this.rules[1].setPersistenceValue(TraitValue.MEDIUM);this.rules[1].setExcitementValue(TraitValue.MEDIUM);
-        this.rules[1].setCompetitiveValue(TraitValue.MEDIUM);this.rules[1].setPlanningValue(TraitValue.MEDIUM);this.rules[1].setTeamworkValue(TraitValue.MEDIUM);
+        this.rules[1].setAnxietyValue(TraitValue.MEDIUM);
+        this.rules[1].setAttentionToDetailValue(TraitValue.MEDIUM);
+        this.rules[1].setPatienceValue(TraitValue.MEDIUM);
+        this.rules[1].setReactionTimeValue(TraitValue.MEDIUM);
+        this.rules[1].setPersistenceValue(TraitValue.MEDIUM);
+        this.rules[1].setExcitementValue(TraitValue.MEDIUM);
+        this.rules[1].setCompetitiveValue(TraitValue.MEDIUM);
+        this.rules[1].setPlanningValue(TraitValue.MEDIUM);
+        this.rules[1].setTeamworkValue(TraitValue.MEDIUM);
+
         this.rules[1].setCompatibilitySet(Compatibility.LIKE);
         //parameters for hate rule
         this.rules[2] = new Rule();
-        this.rules[2].setAnxietyValue(TraitValue.MEDIUM);this.rules[2].setAttentionToDetailValue(TraitValue.LOW);this.rules[2].setPatienceValue(TraitValue.MEDIUM);
-        this.rules[2].setReactionTimeValue(TraitValue.MEDIUM);this.rules[2].setPersistenceValue(TraitValue.LOW);this.rules[2].setExcitementValue(TraitValue.MEDIUM);
-        this.rules[2].setCompetitiveValue(TraitValue.HIGH);this.rules[2].setPlanningValue(TraitValue.LOW);this.rules[2].setTeamworkValue(TraitValue.HIGH);
+        this.rules[2].setAnxietyValue(TraitValue.MEDIUM);
+        this.rules[2].setAttentionToDetailValue(TraitValue.LOW);
+        this.rules[2].setPatienceValue(TraitValue.MEDIUM);
+        this.rules[2].setReactionTimeValue(TraitValue.MEDIUM);
+        this.rules[2].setPersistenceValue(TraitValue.LOW);
+        this.rules[2].setExcitementValue(TraitValue.MEDIUM);
+        this.rules[2].setCompetitiveValue(TraitValue.HIGH);
+        this.rules[2].setPlanningValue(TraitValue.LOW);
+        this.rules[2].setTeamworkValue(TraitValue.HIGH);
+
         this.rules[2].setCompatibilitySet(Compatibility.HATE);
     }
 

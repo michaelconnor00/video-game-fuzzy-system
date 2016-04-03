@@ -1,8 +1,10 @@
 package fuzzysys;
 
 import GUI.MainController;
+import net.sourceforge.jFuzzyLogic.FIS;
 //import com.sun.tools.javac.util.ArrayUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,28 +26,37 @@ public class GenreEngine {
             double persistance, double excitement, double competitiveness,
             double planning, double teamwork
     ){
+        String[] files = new String[]{"rpg.fcl"};
+
+        String file_sep = System.getProperty("file.separator");
+        String dir = System.getProperty("user.dir") + file_sep + "fuzzy_games" +
+                file_sep + "src" + file_sep + "fuzzysys" + file_sep + "fcl" + file_sep;
+
         this.rankedGenres = new ArrayList<>();
 
-        for (Genre gen : Genre.values()){
-            // Iterate through rules for the genre.
-            Rule[] ruleSet = gen.getRules();
-            for (Rule rule : ruleSet){
-                double[] traitValues = new double[9];
-                traitValues[0] = rule.getAnxietyValue(anxiety);
-                traitValues[1] = rule.getAttentionToDetailValue(attentionToDetail);
-                traitValues[2] = rule.getPatienceValue(patience);
-                traitValues[3] = rule.getReactionTimeValue(reactionTime);
-                traitValues[4] = rule.getPersistenceValue(persistance);
-                traitValues[5] = rule.getExcitementValue(excitement);
-                traitValues[6] = rule.getCompetitiveValue(competitiveness);
-                traitValues[7] = rule.getPlanningValue(planning);
-                traitValues[8] = rule.getTeamworkValue(teamwork);
-                double minValue = arrayMin(traitValues);
-//                // TODO modify the output function of rule
-//                Compatibility ruleCompatibility = rule.getCompatibilityFunction(); // FIXME
-//                // TODO Defuzzify
-//                addToList(gen, summedCompatibility, ranking);
+        for (String genre_fcl : files){
+            System.out.println(dir + genre_fcl);
+            FIS fis = FIS.load(dir + genre_fcl, true);
+
+            if( fis == null ) { // Error while loading?
+                System.err.println("Can't load file: '" + genre_fcl + "'");
+                return null;
             }
+
+            fis.setVariable("anxiety", anxiety);
+            fis.setVariable("attention_to_detail", attentionToDetail);
+            fis.setVariable("patience", patience);
+            fis.setVariable("reaction_time", reactionTime);
+            fis.setVariable("persistence", persistance);
+            fis.setVariable("excitement", excitement);
+            fis.setVariable("competitiveness", competitiveness);
+            fis.setVariable("planning", planning);
+            fis.setVariable("teamwork", teamwork);
+
+            fis.evaluate();
+
+            fis.getVariable("compatibility").chartDefuzzifier(true);
+
         }
 
 
