@@ -25,9 +25,10 @@
                         <Slider fx:id="attentionToDetailSlider" blockIncrement="1.0" layoutX="200.0" layoutY="223.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" />
                         <Label layoutX="61.0" layoutY="357.0" text="Competitiveness" />
                         <Label layoutX="222.0" layoutY="206.0" text="Attention to Detail" />
-                        <ChoiceBox layoutX="197.0" layoutY="53.0" prefWidth="150.0" />
-                        <Label layoutX="258.0" layoutY="21.0" text="User" />
-                        <Button layoutX="237.0" layoutY="107.0" mnemonicParsing="false" text="New User" />
+                        <Label layoutX="87.0" layoutY="35.0" text="Fuzzy Game Genre Picker">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font></Label>
                   <Slider fx:id="cooperationSlider" blockIncrement="1.0" layoutX="373.0" layoutY="223.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" />
                   <Slider fx:id="anxietySlider" blockIncrement="1.0" layoutX="200.0" layoutY="299.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" />
                   <Slider fx:id="planningSlider" blockIncrement="1.0" layoutX="202.0" layoutY="374.0" majorTickUnit="1.0" max="5.0" min="1.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" />
@@ -82,6 +83,32 @@
                   <Label layoutX="16.0" layoutY="551.0" text="I found that the" />
                   <ChoiceBox fx:id="reviewBox" layoutX="107.0" layoutY="547.0" prefHeight="25.0" prefWidth="140.0" />
                   <Button fx:id="learningButton" layoutX="107.0" layoutY="480.0" mnemonicParsing="false" onAction="#updateReviewBox" text="Confirm Selection" />
+                  <Label layoutX="1.0" layoutY="40.0" text="Our Genre Reccomendations:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="105.0" text="Top Choice: ...">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="16.0" layoutY="149.0" text="2nd Choice: ...">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="18.0" layoutY="195.0" text="3rd Choice: ...">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="81.0" layoutY="250.0" text="Maybe check out:" />
+                  <Label layoutX="61.0" layoutY="279.0" text="Reccomended Game">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
             </items>
         </SplitPane>

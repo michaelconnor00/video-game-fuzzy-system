@@ -139,6 +139,8 @@ public class MainController extends Application {
     //controls the save button functionality
     //updates all trait variables
     //TODO add code to show output of GenreEngine
+    //TODO add code to adjust labels showing top genres
+    //TODO add code to randomly grab a game in the top genre
     @FXML
     private void handleSaveButton() {
         patience = patienceSlider.getValue();
@@ -167,7 +169,7 @@ public class MainController extends Application {
                 reviewBoxChoices[0] = "Game was too slow";
                 reviewBoxChoices[1] = "Game was too fast";
                 break;
-            case "ReactionTime":
+            case "Reaction Time":
                 reviewBoxChoices[0] = "Game was too slow";
                 reviewBoxChoices[1] = "Game was too fast";
                 break;
@@ -175,7 +177,7 @@ public class MainController extends Application {
                 reviewBoxChoices[0] = "Game wasn't competitive enough";
                 reviewBoxChoices[1] = "Game was too competitive";
                 break;
-            case "AttentionToDetail":
+            case "Attention To Detail":
                 reviewBoxChoices[0] = "Game wasn't complex enough";
                 reviewBoxChoices[1] = "Game was too complex";
                 break;
