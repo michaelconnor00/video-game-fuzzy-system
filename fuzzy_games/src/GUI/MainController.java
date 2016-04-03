@@ -40,8 +40,9 @@ public class MainController extends Application {
     @FXML
     private Slider persistenceSlider;
 
+
     @FXML
-    private ChoiceBox genreBox;
+    private ChoiceBox genreBox ;
     @FXML
     private ChoiceBox traitBox;
     @FXML
@@ -64,15 +65,29 @@ public class MainController extends Application {
 
     private String selectedTrait;
 
+
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Fuzzy Game Genre Picker");
 
         primaryStage.show();
+        genreBox = new ChoiceBox();
+        genreBox.getItems().addAll("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT");
+        genreBox.setValue("RPG");
 
+        traitBox = new ChoiceBox();
+        traitBox.getItems().addAll("Anxiety", "AttentionToDetail", "Patience",
+                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation");
+       // traitBox.setValue("Anxiety");
         showInputWindow();
-        setupChoiceBoxes();
+        final ChoiceBox reviewBox = new ChoiceBox();
+        //setupChoiceBoxes();
     }
 
 
@@ -92,13 +107,15 @@ public class MainController extends Application {
         }
     }
 
+    /*
+    @FXML
     public void setupChoiceBoxes()
     {
         genreBox.setItems(FXCollections.observableArrayList("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT"));
         traitBox.setItems(FXCollections.observableArrayList("Anxiety", "AttentionToDetail", "Patience",
                 "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation"));
     }
-
+*/
     //getters
 
     public double getPatience() {
@@ -155,6 +172,7 @@ public class MainController extends Application {
     @FXML
     private void updateReviewBox()
     {
+        /*
         //find selected trait
         String selectedTrait = traitBox.getValue().toString();
 
@@ -201,6 +219,7 @@ public class MainController extends Application {
 
         }
         reviewBox.setItems(FXCollections.observableArrayList(reviewBoxChoices));
+        */
     }
 
 }
