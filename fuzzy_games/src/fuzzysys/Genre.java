@@ -6,12 +6,12 @@ package fuzzysys;
  */
 public enum Genre {
     ROLEPLAYING("rpg.fcl"),
-    SHOOTER("fps.rcl"),
+    SHOOTER("fps.fcl"),
     STRATEGYRTS("rts.fcl"),
     STRATEGYTURNBASED("tbs.fcl"),
     SIMULATION("sim.fcl"),
-    SPORTS("spt.fcl"),
-    FIGHTING("fig.fcl");
+    SPORTS("sport.fcl"),
+    FIGHTING("fight.fcl");
 
     private String file_name;
 

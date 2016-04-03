@@ -11,7 +11,7 @@ public class Main {
         System.out.println("beginning of main");
         GenreEngine engine = new GenreEngine();
 
-        ArrayList list = engine.getGenreList(
+        ArrayList<Rank> list = engine.getGenreList(
             4.0, // anxiety
             4.0, // atten detail
             4.0, // patience
@@ -24,6 +24,8 @@ public class Main {
         );
 
         System.out.println("before array print");
-        System.out.println(list.toString());
+        for (Rank rank : list){
+            System.out.println(rank.toString());
+        }
     }
 }

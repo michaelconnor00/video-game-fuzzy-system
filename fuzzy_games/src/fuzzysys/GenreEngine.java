@@ -1,8 +1,6 @@
 package fuzzysys;
 
-import GUI.MainController;
 import net.sourceforge.jFuzzyLogic.FIS;
-//import com.sun.tools.javac.util.ArrayUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -34,7 +32,7 @@ public class GenreEngine {
             FIS fis = FIS.load(genre_fcl.getFileName(), true);
 
             if( fis == null ) { // Error while loading?
-                System.err.println("Can't load file: '" + genre_fcl + "'");
+                System.err.println("Can't load file: '" + genre_fcl.getFileName() + "'");
                 return null;
             }
 
@@ -50,12 +48,12 @@ public class GenreEngine {
 
             fis.evaluate();
 
-            fis.getVariable("compatibility").chartDefuzzifier(true);
+//            fis.getVariable("compatibility").chartDefuzzifier(true);
             double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
             addToList(genre_fcl, outputValue);
         }
 
-        return rankedGenres;
+        return this.rankedGenres;
     }
 
     private void addToList(Genre genre, double compatibilityValue){
@@ -64,9 +62,12 @@ public class GenreEngine {
         if (this.rankedGenres.isEmpty()){
             this.rankedGenres.add(newRanking);
         } else {
-            for (int i = 0; i < this.rankedGenres.size(); i++) {
+            int sizeList = this.rankedGenres.size();
+            for (int i = 0; i < sizeList; i++) {
                 if (compatibilityValue > this.rankedGenres.get(i).getCompatibility()) {
                     this.rankedGenres.add(i, newRanking);
+                }else if (this.rankedGenres.size()-1 == i){
+                    this.rankedGenres.add(newRanking);
                 }
             }
         }

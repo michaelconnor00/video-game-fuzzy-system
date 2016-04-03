@@ -17,4 +17,8 @@ public class Rank{
         return this.compatibility;
     }
 
+    @Override
+    public String toString() {
+        return this.genre + " : " + this.compatibility;
+    }
 }
