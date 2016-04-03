@@ -76,17 +76,7 @@ public class MainController extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Fuzzy Game Genre Picker");
 
-//        genreBox = new ChoiceBox();
-//        genreBox.getItems().addAll("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT");
-//        genreBox.setValue("RPG");
-//
-//        traitBox = new ChoiceBox();
-//        traitBox.getItems().addAll("Anxiety", "AttentionToDetail", "Patience",
-//                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation");
-       // traitBox.setValue("Anxiety");
         showInputWindow();
-//        setupChoiceBoxes();
-        final ChoiceBox reviewBox = new ChoiceBox();
 
     }
 
@@ -107,14 +97,6 @@ public class MainController extends Application {
         }
     }
 
-
-//    @FXML
-//    public void setupChoiceBoxes()
-//    {
-//        genreBox.setItems(FXCollections.observableArrayList("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT"));
-//        traitBox.setItems(FXCollections.observableArrayList("Anxiety", "AttentionToDetail", "Patience",
-//                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation"));
-//    }
 
     //getters
 
@@ -156,6 +138,7 @@ public class MainController extends Application {
 
     //controls the save button functionality
     //updates all trait variables
+    //TODO add code to show output of GenreEngine
     @FXML
     private void handleSaveButton() {
         patience = patienceSlider.getValue();
@@ -172,9 +155,10 @@ public class MainController extends Application {
     @FXML
     private void updateReviewBox()
     {
-        /*
+
         //find selected trait
-        String selectedTrait = traitBox.getValue().toString();
+        String selectedTrait = traitBox.getValue();
+
 
         String[] reviewBoxChoices = new String[2];
         switch (selectedTrait)
@@ -215,11 +199,14 @@ public class MainController extends Application {
                 reviewBoxChoices[0] = "Game was too short";
                 reviewBoxChoices[1] = "Game was too long";
                 break;
-            default: break;
+            default:
+                reviewBoxChoices[0] = "Game was too short";
+                reviewBoxChoices[1] = "Game was too long";
+                break;
 
         }
         reviewBox.setItems(FXCollections.observableArrayList(reviewBoxChoices));
-        */
+
     }
 
 }
