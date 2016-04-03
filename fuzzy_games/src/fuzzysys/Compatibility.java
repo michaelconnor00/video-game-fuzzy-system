@@ -8,7 +8,7 @@ public enum Compatibility {
     LIKE,
     HATE;
 
-    private double getMembership(double x){
+    public double getMembership(double x){
         switch (this.name()){
             case "LOVE":
                 return Functions.BASE.highMembershipFunc(x);

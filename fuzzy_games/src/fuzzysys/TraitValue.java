@@ -16,7 +16,7 @@ public enum TraitValue {
         this.displayName = display;
     }
 
-    private double getMembership(double x){
+    public double getMembership(double x){
         switch (this.name()){
             case "HIGH":
                 return Functions.BASE.highMembershipFunc(x);
