@@ -12,7 +12,7 @@ public class Main {
         GenreEngine engine = new GenreEngine();
 
         ArrayList<Rank> list = engine.getGenreList(
-            4.0, // anxiety
+            2.0, // anxiety
             4.0, // atten detail
             4.0, // patience
             2.0, // reactionTime

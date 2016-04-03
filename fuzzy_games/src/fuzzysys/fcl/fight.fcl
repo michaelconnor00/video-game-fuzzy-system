@@ -22,57 +22,57 @@ END_VAR
 // Fuzzify input variables
 
 FUZZIFY anxiety
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY attention_to_detail
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY patience
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY reaction_time
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY persistence
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY competitiveness
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY planning
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY teamwork
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 FUZZIFY excitement
-    TERM low := (0, 1) (2, 0);
+    TERM low := (0, 1) (4, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (2, 0) (4, 1);
+    TERM high := (0,0) (4, 1);
 END_FUZZIFY
 
 

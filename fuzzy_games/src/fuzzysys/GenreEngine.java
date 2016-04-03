@@ -66,8 +66,10 @@ public class GenreEngine {
             for (int i = 0; i < sizeList; i++) {
                 if (compatibilityValue > this.rankedGenres.get(i).getCompatibility()) {
                     this.rankedGenres.add(i, newRanking);
+                    return;
                 }else if (this.rankedGenres.size()-1 == i){
                     this.rankedGenres.add(newRanking);
+                    return;
                 }
             }
         }
