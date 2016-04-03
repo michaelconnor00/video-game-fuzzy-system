@@ -5,41 +5,53 @@ package fuzzysys;
  * Created by michaelconnor on 2016-03-20.
  */
 public enum Genre {
-    ROLEPLAYING("RPG"),
-    SHOOTER("FPS"),
-    STRATEGYRTS("RTS"),
-    STRATEGYTURNBASED("TBS"),
-    SIMULATION("SIM"),
-    SPORTS("SPT"),
-    FIGHTING("FIG");
+    ROLEPLAYING("rpg.fcl"),
+    SHOOTER("fps.rcl"),
+    STRATEGYRTS("rts.fcl"),
+    STRATEGYTURNBASED("tbs.fcl"),
+    SIMULATION("sim.fcl"),
+    SPORTS("spt.fcl"),
+    FIGHTING("fig.fcl");
+
+    private String file_name;
 
     Genre(String name){
-        switch(name) {
-            case "RPG":
-                initRPGSet();
-                break;
-            case "FPS":
-                initShooterSet();
-                break;
-            case "RTS":
-                initRTSSet();
-                break;
-            case "TBS":
-                initTBSSet();
-                break;
-            case "SIM":
-                initSimulationSet();
-                break;
-            case "SPT":
-                initSportSet();
-                break;
-            case "FIG":
-                initFightingSet();
-                break;
-            default:
-                break;
-        }
 
+        String file_sep = System.getProperty("file.separator");
+        String dir = System.getProperty("user.dir") + file_sep + "fuzzy_games" +
+            file_sep + "src" + file_sep + "fuzzysys" + file_sep + "fcl" + file_sep;
+
+        this.file_name = dir + name;
+
+//        switch(name) {
+//            case "RPG":
+//                initRPGSet();
+//                break;
+//            case "FPS":
+//                initShooterSet();
+//                break;
+//            case "RTS":
+//                initRTSSet();
+//                break;
+//            case "TBS":
+//                initTBSSet();
+//                break;
+//            case "SIM":
+//                initSimulationSet();
+//                break;
+//            case "SPT":
+//                initSportSet();
+//                break;
+//            case "FIG":
+//                initFightingSet();
+//                break;
+//            default:
+//                break;
+//        }
+    }
+
+    public String getFileName(){
+        return this.file_name;
     }
 
     private Rule[] rules;
