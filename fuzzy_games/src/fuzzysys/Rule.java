@@ -132,6 +132,48 @@ public class Rule {
     public void setTeamworkValue(TraitValue teamworkValue) {
         this.teamworkValue = teamworkValue;
     }
+
+
+// getrs for file output of rules
+    public TraitValue getAnxietyLevel() {
+        return anxietyValue;
+    }
+
+    public TraitValue getAttentionToDetailLevel() {
+        return attentionToDetailValue;
+    }
+
+    public TraitValue getPatienceLevel() {
+        return patienceValue;
+    }
+
+    public TraitValue getReactionTimeLevel() {
+        return reactionTimeValue;
+    }
+
+    public TraitValue getPersistenceLevel() {
+        return persistenceValue;
+    }
+
+    public TraitValue getExcitementLevel() {
+        return excitementValue;
+    }
+
+    public TraitValue getCompetitiveLevel() {
+        return competitiveValue;
+    }
+
+    public TraitValue getPlanningLevel() {
+        return planningValue;
+    }
+
+    public TraitValue getTeamworkLevel() {
+        return teamworkValue;
+    }
+
+    public Compatibility getCompatibilitySet() {
+        return compatibilitySet;
+    }
 }
 
 
