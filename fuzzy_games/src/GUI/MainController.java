@@ -42,11 +42,11 @@ public class MainController extends Application {
 
 
     @FXML
-    private ChoiceBox genreBox ;
+    private ChoiceBox<String> genreBox;
     @FXML
-    private ChoiceBox traitBox;
+    private ChoiceBox<String> traitBox;
     @FXML
-    private ChoiceBox reviewBox;
+    private ChoiceBox<String> reviewBox;
 
     //working memory variables
     private double patience;
@@ -76,18 +76,18 @@ public class MainController extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Fuzzy Game Genre Picker");
 
-        primaryStage.show();
-        genreBox = new ChoiceBox();
-        genreBox.getItems().addAll("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT");
-        genreBox.setValue("RPG");
-
-        traitBox = new ChoiceBox();
-        traitBox.getItems().addAll("Anxiety", "AttentionToDetail", "Patience",
-                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation");
+//        genreBox = new ChoiceBox();
+//        genreBox.getItems().addAll("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT");
+//        genreBox.setValue("RPG");
+//
+//        traitBox = new ChoiceBox();
+//        traitBox.getItems().addAll("Anxiety", "AttentionToDetail", "Patience",
+//                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation");
        // traitBox.setValue("Anxiety");
         showInputWindow();
+//        setupChoiceBoxes();
         final ChoiceBox reviewBox = new ChoiceBox();
-        //setupChoiceBoxes();
+
     }
 
 
@@ -100,22 +100,22 @@ public class MainController extends Application {
             AnchorPane windowOverview = (AnchorPane) loader.load();
             Scene mainScene = new Scene(windowOverview);
             primaryStage.setScene(mainScene);
-
+            primaryStage.show();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /*
-    @FXML
-    public void setupChoiceBoxes()
-    {
-        genreBox.setItems(FXCollections.observableArrayList("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT"));
-        traitBox.setItems(FXCollections.observableArrayList("Anxiety", "AttentionToDetail", "Patience",
-                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation"));
-    }
-*/
+
+//    @FXML
+//    public void setupChoiceBoxes()
+//    {
+//        genreBox.setItems(FXCollections.observableArrayList("RPG", "FPS", "RTS", "TBS", "SIM", "SPORT", "FIGHT"));
+//        traitBox.setItems(FXCollections.observableArrayList("Anxiety", "AttentionToDetail", "Patience",
+//                "ReactionTime", "Persistence", "Excitement", "Competitiveness", "Planning", "Cooperation"));
+//    }
+
     //getters
 
     public double getPatience() {

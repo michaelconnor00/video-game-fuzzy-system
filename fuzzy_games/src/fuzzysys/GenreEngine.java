@@ -41,10 +41,10 @@ public class GenreEngine {
                 traitValues[7] = rule.getPlanningValue(planning);
                 traitValues[8] = rule.getTeamworkValue(teamwork);
                 double minValue = arrayMin(traitValues);
-                // TODO modify the output function of rule
-                Compatibility ruleCompatibility = rule.getCompatibilityFunction(); // FIXME
-                // TODO Defuzzify
-                addToList(gen, summedCompatibility, ranking);
+//                // TODO modify the output function of rule
+//                Compatibility ruleCompatibility = rule.getCompatibilityFunction(); // FIXME
+//                // TODO Defuzzify
+//                addToList(gen, summedCompatibility, ranking);
             }
         }
 
