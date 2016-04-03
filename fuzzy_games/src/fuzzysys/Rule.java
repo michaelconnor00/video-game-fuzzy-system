@@ -9,7 +9,7 @@ public class Rule {
 
 
     //PRIVATE MEMBER DATA
-    private Genre myGenre;
+//    private Genre myGenre;
     private TraitValue anxietyValue;
     private TraitValue attentionToDetailValue;
     private TraitValue patienceValue;
@@ -19,87 +19,114 @@ public class Rule {
     private TraitValue competitiveValue;
     private TraitValue planningValue;
     private TraitValue teamworkValue;
+    private Compatibility compatibilitySet;
 
-
-    public Rule(Genre genre)
-    {
-        myGenre = genre;
+    public Compatibility getCompatibilityMembership(double value) {
+        // TODO adjust function as output
+        return compatibilitySet;
     }
 
-    public Genre getMyGenre() {
-        return myGenre;
+    public void setCompatibilitySet(Compatibility compatibilitySet) {
+        this.compatibilitySet = compatibilitySet;
     }
 
-    public void setMyGenre(Genre myGenre) {
-        this.myGenre = myGenre;
-    }
+    public Rule(){}
 
-    public TraitValue getAnxietyValue() {
-        return anxietyValue;
+//    public Rule(Genre genre)
+//    {
+//        myGenre = genre;
+//    }
+//
+//    public Genre getMyGenre() {
+//        return myGenre;
+//    }
+//
+//    public void setMyGenre(Genre myGenre) {
+//        this.myGenre = myGenre;
+//    }
+
+    public double getAnxietyValue(double value) {
+        return anxietyValue.getMembership(value);
     }
 
     public void setAnxietyValue(TraitValue anxietyValue) {
         this.anxietyValue = anxietyValue;
     }
 
-    public TraitValue getAttentionToDetailValue() {
-        return attentionToDetailValue;
+    ////
+
+    public double getAttentionToDetailValue(double value) {
+        return attentionToDetailValue.getMembership(value);
     }
 
     public void setAttentionToDetailValue(TraitValue attentionToDetailValue) {
         this.attentionToDetailValue = attentionToDetailValue;
     }
 
-    public TraitValue getPatienceValue() {
-        return patienceValue;
+    ////
+
+    public double getPatienceValue(double value) {
+        return patienceValue.getMembership(value);
     }
 
     public void setPatienceValue(TraitValue patienceValue) {
         this.patienceValue = patienceValue;
     }
 
-    public TraitValue getReactionTimeValue() {
-        return reactionTimeValue;
+    ////
+
+    public double getReactionTimeValue(double value) {
+        return reactionTimeValue.getMembership(value);
     }
 
     public void setReactionTimeValue(TraitValue reactionTimeValue) {
         this.reactionTimeValue = reactionTimeValue;
     }
 
-    public TraitValue getPersistenceValue() {
-        return persistenceValue;
+    ////
+
+    public double getPersistenceValue(double value) {
+        return persistenceValue.getMembership(value);
     }
 
     public void setPersistenceValue(TraitValue persistenceValue) {
         this.persistenceValue = persistenceValue;
     }
 
-    public TraitValue getExcitementValue() {
-        return excitementValue;
+    ////
+
+    public double getExcitementValue(double value) {
+        return excitementValue.getMembership(value);
     }
 
     public void setExcitementValue(TraitValue excitementValue) {
         this.excitementValue = excitementValue;
     }
 
-    public TraitValue getCompetitiveValue() {
-        return competitiveValue;
+    ////
+
+    public double getCompetitiveValue(double value) {
+        return competitiveValue.getMembership(value);
     }
 
     public void setCompetitiveValue(TraitValue competitiveValue) {
         this.competitiveValue = competitiveValue;
     }
 
-    public TraitValue getPlanningValue() {
-        return planningValue;
+    ////
+
+    public double getPlanningValue(double value) {
+        return planningValue.getMembership(value);
     }
 
     public void setPlanningValue(TraitValue planningValue) {
         this.planningValue = planningValue;
     }
 
-    public TraitValue getTeamworkValue() {
-        return teamworkValue;
+    ////
+
+    public double getTeamworkValue(double value) {
+        return teamworkValue.getMembership(value);
     }
 
     public void setTeamworkValue(TraitValue teamworkValue) {
