@@ -152,6 +152,7 @@ public class MainController extends Application {
         cooperation = cooperationSlider.getValue();
         excitement = excitementSlider.getValue();
         persistence = persistenceSlider.getValue();
+        System.out.println(persistence);
     }
 
     @FXML
