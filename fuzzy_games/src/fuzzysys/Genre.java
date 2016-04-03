@@ -24,25 +24,25 @@ public enum Genre {
         this.file_name = dir + name;
 
 //        switch(name) {
-//            case "RPG":
+//            case "rpg":
 //                initRPGSet();
 //                break;
-//            case "FPS":
+//            case "fps":
 //                initShooterSet();
 //                break;
-//            case "RTS":
+//            case "rts":
 //                initRTSSet();
 //                break;
-//            case "TBS":
+//            case "tbs":
 //                initTBSSet();
 //                break;
-//            case "SIM":
+//            case "sim":
 //                initSimulationSet();
 //                break;
-//            case "SPT":
+//            case "sport":
 //                initSportSet();
 //                break;
-//            case "FIG":
+//            case "fight":
 //                initFightingSet();
 //                break;
 //            default:
