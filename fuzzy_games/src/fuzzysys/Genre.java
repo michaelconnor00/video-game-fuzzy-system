@@ -10,8 +10,8 @@ public enum Genre {
     STRATEGYRTS("rts.fcl"),
     STRATEGYTURNBASED("tbs.fcl"),
     SIMULATION("sim.fcl"),
-    SPORTS("spt.fcl"),
-    FIGHTING("fig.fcl");
+    SPORTS("sport.fcl"),
+    FIGHTING("fight.fcl");
 
     private String file_name;
 
@@ -23,31 +23,31 @@ public enum Genre {
 
         this.file_name = dir + name;
 
-//        switch(name) {
-//            case "rpg":
-//                initRPGSet();
-//                break;
-//            case "fps":
-//                initShooterSet();
-//                break;
-//            case "rts":
-//                initRTSSet();
-//                break;
-//            case "tbs":
-//                initTBSSet();
-//                break;
-//            case "sim":
-//                initSimulationSet();
-//                break;
-//            case "sport":
-//                initSportSet();
-//                break;
-//            case "fight":
-//                initFightingSet();
-//                break;
-//            default:
-//                break;
-//        }
+        switch(name) {
+            case "rpg":
+                initRPGSet();
+                break;
+            case "fps":
+                initShooterSet();
+                break;
+            case "rts":
+                initRTSSet();
+                break;
+            case "tbs":
+                initTBSSet();
+                break;
+            case "sim":
+                initSimulationSet();
+                break;
+            case "sport":
+                initSportSet();
+                break;
+            case "fight":
+                initFightingSet();
+                break;
+            default:
+                break;
+        }
     }
 
     public String getFileName(){
