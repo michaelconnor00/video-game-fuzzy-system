@@ -56,6 +56,7 @@ public class GenreEngine {
             fis.evaluate();
 
             fis.getVariable("compatibility").chartDefuzzifier(true);
+            double outputValue = fis.getVariable("tip").getLatestDefuzzifiedValue();
 
         }
 
