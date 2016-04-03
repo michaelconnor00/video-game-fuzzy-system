@@ -15,10 +15,8 @@ public class Trait {
      */
     public Trait(int[] traitValues){
         this.traitValueSet = new HashMap<>();
-        this.traitValueSet.put(TraitValue.INEPT, traitValues[0]);
         this.traitValueSet.put(TraitValue.LOW, traitValues[1]);
-        this.traitValueSet.put(TraitValue.AVERAGE, traitValues[2]);
+        this.traitValueSet.put(TraitValue.MEDIUM, traitValues[2]);
         this.traitValueSet.put(TraitValue.HIGH, traitValues[3]);
-        this.traitValueSet.put(TraitValue.GODLIKE, traitValues[4]);
     }
 }
