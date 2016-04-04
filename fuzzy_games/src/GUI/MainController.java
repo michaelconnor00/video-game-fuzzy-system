@@ -1,6 +1,8 @@
 package GUI;
 
 import fuzzysys.BehaviouralTraits;
+import fuzzysys.GenreEngine;
+import fuzzysys.Rank;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -13,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Nick Taylor on 3/20/2016.
@@ -65,10 +68,16 @@ public class MainController extends Application {
 
     private String selectedTrait;
 
+    private static GenreEngine engine;
+
 
     public static void main(String[] args)
     {
+        engine = new GenreEngine();
         launch(args);
+
+        //Start fuzzy engine
+
     }
 
     @Override
@@ -143,15 +152,19 @@ public class MainController extends Application {
     //TODO add code to randomly grab a game in the top genre
     @FXML
     private void handleSaveButton() {
+
+        anxiety = anxietySlider.getValue();
+        attentionToDetail = attentionToDetailSlider.getValue();
         patience = patienceSlider.getValue();
         reactionTime = reactionTimeSlider.getValue();
+        persistence = persistenceSlider.getValue();
+        excitement = excitementSlider.getValue();
         competitiveness = competitivenessSlider.getValue();
-        attentionToDetail = attentionToDetailSlider.getValue();
-        anxiety = anxietySlider.getValue();
         planning = planningSlider.getValue();
         cooperation = cooperationSlider.getValue();
-        excitement = excitementSlider.getValue();
-        persistence = persistenceSlider.getValue();
+
+        calculateRanks();
+
     }
 
     @FXML
@@ -211,4 +224,26 @@ public class MainController extends Application {
 
     }
 
+
+
+    public void calculateRanks()
+    {
+        System.out.println(anxiety);
+        System.out.println(attentionToDetail);
+        System.out.println(patience);
+        System.out.println(reactionTime);
+        System.out.println(persistence);
+        System.out.println(excitement);
+
+        //Fuzzy engine stuff
+
+        //Throw values from GUI into GenreEngine
+        ArrayList<Rank> list = engine.getGenreList(anxiety, attentionToDetail, patience,
+                reactionTime, persistence, excitement, competitiveness, planning, cooperation);
+
+        //test print the rank list
+        for (Rank rank : list) {
+            System.out.println(rank.toString());
+        }
+    }
 }

@@ -1,8 +1,6 @@
 package fuzzysys;
 
-import GUI.MainController;
 import net.sourceforge.jFuzzyLogic.FIS;
-//import com.sun.tools.javac.util.ArrayUtils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -26,20 +24,15 @@ public class GenreEngine {
             double persistance, double excitement, double competitiveness,
             double planning, double teamwork
     ){
-        String[] files = new String[]{"rpg.fcl"};
-
-        String file_sep = System.getProperty("file.separator");
-        String dir = System.getProperty("user.dir") + file_sep + "fuzzy_games" +
-                file_sep + "src" + file_sep + "fuzzysys" + file_sep + "fcl" + file_sep;
 
         this.rankedGenres = new ArrayList<>();
 
-        for (String genre_fcl : files){
-            System.out.println(dir + genre_fcl);
-            FIS fis = FIS.load(dir + genre_fcl, true);
+        for (Genre genre_fcl : Genre.values()){
+            System.out.println(genre_fcl.getFileName());
+            FIS fis = FIS.load(genre_fcl.getFileName(), true);
 
             if( fis == null ) { // Error while loading?
-                System.err.println("Can't load file: '" + genre_fcl + "'");
+                System.err.println("Can't load file: '" + genre_fcl.getFileName() + "'");
                 return null;
             }
 
@@ -55,36 +48,49 @@ public class GenreEngine {
 
             fis.evaluate();
 
-            fis.getVariable("compatibility").chartDefuzzifier(true);
-            double outputValue = fis.getVariable("tip").getLatestDefuzzifiedValue();
-
+//            fis.getVariable("compatibility").chartDefuzzifier(true);
+            double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
+            addToList(genre_fcl, outputValue);
+            System.out.println(outputValue);
         }
 
-
-        return rankedGenres;
+        return this.rankedGenres;
     }
 
-    private void addToList(Genre genre, Compatibility compatibility, double ranking){
-        Rank newRanking = new Rank(genre, compatibility, ranking);
+    private void addToList(Genre genre, double compatibilityValue){
+        Rank newRanking = new Rank(genre, compatibilityValue);
         // TODO iterate through all items in ranked Genres and insert the new Rank
-        this.rankedGenres.add(newRanking);
-    }
-
-    private double arrayMin(double[] list){
-        double minValue = -1.0;
-        for (double value : list){
-            if (minValue < 0.0){
-                // First index of list
-                minValue = value;
-            } else {
-                // If value is smaller, overwrite
-                if (value < minValue) {
-                    minValue = value;
+        if (this.rankedGenres.isEmpty()){
+            this.rankedGenres.add(newRanking);
+        } else {
+            int sizeList = this.rankedGenres.size();
+            for (int i = 0; i < sizeList; i++) {
+                if (compatibilityValue > this.rankedGenres.get(i).getCompatibility()) {
+                    this.rankedGenres.add(i, newRanking);
+                    return;
+                }else if (this.rankedGenres.size()-1 == i){
+                    this.rankedGenres.add(newRanking);
+                    return;
                 }
             }
-
         }
-        return minValue;
     }
+
+//    private double arrayMin(double[] list){
+//        double minValue = -1.0;
+//        for (double value : list){
+//            if (minValue < 0.0){
+//                // First index of list
+//                minValue = value;
+//            } else {
+//                // If value is smaller, overwrite
+//                if (value < minValue) {
+//                    minValue = value;
+//                }
+//            }
+//
+//        }
+//        return minValue;
+//    }
 
 }

@@ -84,7 +84,7 @@ DEFUZZIFY compatibility
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 0 (if no rule activates defuzzifier)
-    // DEFAULT := 0;
+    //DEFAULT := 0;
 END_DEFUZZIFY
 
 
@@ -98,18 +98,18 @@ RULEBLOCK No1
     ACCU : MAX;
 
     RULE 1 : IF anxiety IS high AND attention_to_detail IS high AND patience IS high AND
-                reaction_time IS medium AND persistence IS high AND excitement IS low AND
+                reaction_time IS low AND persistence IS high AND excitement IS low AND
                 competitiveness IS low AND planning IS medium AND teamwork IS low
                 THEN compatibility IS love;
 
     RULE 2 : IF anxiety IS medium AND attention_to_detail IS medium AND patience IS medium AND
-                 reaction_time IS medium AND persistence IS medium AND excitement IS medium AND
-                 competitiveness IS medium AND planning IS medium AND teamwork IS medium
+                 reaction_time IS medium AND persistence IS medium AND excitement IS low AND
+                 competitiveness IS low AND planning IS medium AND teamwork IS low
                  THEN compatibility IS like;
 
-    RULE 3 : IF anxiety IS medium AND attention_to_detail IS low AND patience IS medium AND
-                 reaction_time IS medium AND persistence IS low AND excitement IS medium AND
-                 competitiveness IS high AND planning IS low AND teamwork IS high
+    RULE 3 : IF anxiety IS medium AND attention_to_detail IS low AND patience IS low AND
+                 reaction_time IS medium AND persistence IS low AND excitement IS high AND
+                 competitiveness IS high AND planning IS medium AND teamwork IS high
                  THEN compatibility IS hate;
 END_RULEBLOCK
 
