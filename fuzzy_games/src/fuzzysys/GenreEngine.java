@@ -44,7 +44,6 @@ public class GenreEngine {
 
             fis.evaluate();
 
-//            fis.getVariable("compatibility").chartDefuzzifier(true);
             double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
             addToList(genre_fcl, outputValue);
             System.out.println(outputValue);

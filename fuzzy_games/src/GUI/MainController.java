@@ -307,7 +307,7 @@ public class MainController extends Application {
                 path = Genre.FIGHTING.getFile_name();
                 break;
         }
-        System.out.println(path+"place 1");
+//        System.out.println(path+"place 1");
 
 
         String[] loveList,likeList,hateList;
@@ -315,11 +315,11 @@ public class MainController extends Application {
         newloveList=new String[9];
         newlikeList=new String[9];
         newhateList=new String[9];
-        System.out.println(path+"place 2");
+//        System.out.println(path+"place 2");
         loveList = FuzzyFileWriter.getLoveList(path);
         likeList = FuzzyFileWriter.getlikeList(path);
         hateList = FuzzyFileWriter.gethateList(path);
-        System.out.println(path+"place 3");
+//        System.out.println(path+"place 3");
         //System.out.println(loveList);
         //System.out.println(likeList);
         //System.out.println(hateList);
