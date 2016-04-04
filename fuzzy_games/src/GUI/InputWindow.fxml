@@ -88,23 +88,23 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="16.0" layoutY="105.0" text="Top Choice: ...">
+                  <Label fx:id="topChoiceLabel" layoutX="16.0" layoutY="105.0" text="Top Choice: ...">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="16.0" layoutY="149.0" text="2nd Choice: ...">
+                  <Label fx:id="secondChoiceLabel" layoutX="16.0" layoutY="149.0" text="2nd Choice: ...">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="18.0" layoutY="195.0" text="3rd Choice: ...">
+                  <Label fx:id="thirdChoiceLabel" layoutX="18.0" layoutY="195.0" text="3rd Choice: ...">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
                   <Label layoutX="81.0" layoutY="250.0" text="Maybe check out:" />
-                  <Label layoutX="61.0" layoutY="279.0" text="Recommended Game">
+                  <Label fx:id="recommendedGameLabel" layoutX="61.0" layoutY="279.0" text="Recommended Game">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
