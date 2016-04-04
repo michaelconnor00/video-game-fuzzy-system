@@ -77,7 +77,8 @@ public class MainController extends Application {
     private BorderPane rootLayout;
 
     private String selectedTrait;
-    @FXML
+
+
     private static GenreEngine engine;
 
 
@@ -306,17 +307,22 @@ public class MainController extends Application {
                 path = Genre.FIGHTING.getFile_name();
                 break;
         }
-        String trateSelected= traitBox.getValue();
-        String feadBack = reviewBox.getValue();
+        System.out.println(path+"place 1");
+
+
         String[] loveList,likeList,hateList;
         String[] newloveList,newlikeList,newhateList;
         newloveList=new String[9];
         newlikeList=new String[9];
         newhateList=new String[9];
-
-        loveList =FuzzyFileWriter.getLoveList(path);
+        System.out.println(path+"place 2");
+        loveList = FuzzyFileWriter.getLoveList(path);
         likeList = FuzzyFileWriter.getlikeList(path);
         hateList = FuzzyFileWriter.gethateList(path);
+        System.out.println(path+"place 3");
+        //System.out.println(loveList);
+        //System.out.println(likeList);
+        //System.out.println(hateList);
         for(int i=0;i<9;i++){
 
             newloveList[i]=loveList[i+1];
@@ -324,7 +330,7 @@ public class MainController extends Application {
             newhateList[i]=hateList[i+1];
         }
        //atribue input order is (1)anxiety,(2)attention to detale, (3)patience, (4)reaction time, (5)persistance, (6)exitment, (7)competitiveness, (8)planning, (9)teamwork
-        switch (trateSelected)
+        switch (traitBox.getValue())
         {
             case "Patience":
                 if(reviewBox.getValue().equals("Game was too slow")){
