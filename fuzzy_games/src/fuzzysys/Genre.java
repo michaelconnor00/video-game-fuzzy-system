@@ -13,6 +13,10 @@ public enum Genre {
     SPORTS("sport.fcl"),
     FIGHTING("fight.fcl");
 
+    public String getFile_name() {
+        return file_name;
+    }
+
     private String file_name;
 
     Genre(String name){

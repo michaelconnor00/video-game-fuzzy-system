@@ -3,6 +3,7 @@ package fuzzysys;
 import java.util.ArrayList;
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.rule.Rule;
+import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 /**
  * Created by michaelconnor on 2016-03-19.
  */
@@ -35,6 +36,7 @@ public class Main {
         file.setVariable("anxiety",3.9);
         System.out.println(file.getFunctionBlock("test").getFuzzyRuleBlock("No1").getRules());
         for( Rule r : file.getFunctionBlock("test").getFuzzyRuleBlock("No1").getRules() ){
+            ;
             System.out.println(r);
         }
         String[] love1,like1,hate1;

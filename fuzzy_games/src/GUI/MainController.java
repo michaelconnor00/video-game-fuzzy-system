@@ -1,9 +1,6 @@
 package GUI;
 
-import fuzzysys.BehaviouralTraits;
-import fuzzysys.Genre;
-import fuzzysys.GenreEngine;
-import fuzzysys.Rank;
+import fuzzysys.*;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -80,7 +77,7 @@ public class MainController extends Application {
     private BorderPane rootLayout;
 
     private String selectedTrait;
-
+    @FXML
     private static GenreEngine engine;
 
 
@@ -196,8 +193,8 @@ public class MainController extends Application {
                 reviewBoxChoices[1] = "Game was too fast";
                 break;
             case "Reaction Time":
-                reviewBoxChoices[0] = "Game was too slow";
-                reviewBoxChoices[1] = "Game was too fast";
+                reviewBoxChoices[0] = "Game moved too slow";
+                reviewBoxChoices[1] = "Game moved too fast";
                 break;
             case "Competitiveness":
                 reviewBoxChoices[0] = "Game wasn't competitive enough";
@@ -285,7 +282,191 @@ public class MainController extends Application {
     @FXML
     public void handleFinalLearningButton()
     {
+        String path = genreBox.getValue();
+        switch(genreBox.getValue()){
+            case "First Person Shooter":
+                path = Genre.SHOOTER.getFile_name();
+                break;
+            case "Real-Time Strategy":
+                path = Genre.STRATEGYRTS.getFile_name();
+                break;
+            case "Turn-Based Strategy":
+                path = Genre.STRATEGYTURNBASED.getFile_name();
+                break;
+            case "Simulation":
+                path = Genre.SIMULATION.getFile_name();
+                break;
+            case "Sport":
+                path = Genre.SPORTS.getFile_name();
+                break;
+            case "Roleplaying Game":
+                path = Genre.ROLEPLAYING.getFile_name();
+                break;
+            case "Fighting":
+                path = Genre.FIGHTING.getFile_name();
+                break;
+        }
+        String trateSelected= traitBox.getValue();
+        String feadBack = reviewBox.getValue();
+        String[] loveList,likeList,hateList;
+        String[] newloveList,newlikeList,newhateList;
+        newloveList=new String[9];
+        newlikeList=new String[9];
+        newhateList=new String[9];
 
+        loveList =FuzzyFileWriter.getLoveList(path);
+        likeList = FuzzyFileWriter.getlikeList(path);
+        hateList = FuzzyFileWriter.gethateList(path);
+        for(int i=0;i<9;i++){
+
+            newloveList[i]=loveList[i+1];
+            newlikeList[i]=likeList[i+1];
+            newhateList[i]=hateList[i+1];
+        }
+       //atribue input order is (1)anxiety,(2)attention to detale, (3)patience, (4)reaction time, (5)persistance, (6)exitment, (7)competitiveness, (8)planning, (9)teamwork
+        switch (trateSelected)
+        {
+            case "Patience":
+                if(reviewBox.getValue().equals("Game was too slow")){
+
+                    newloveList[2]=dec(loveList[2+1]);
+                    newlikeList[2]=dec(likeList[2+1]);
+                    newhateList[2]=inc(hateList[2+1]);
+                }else{
+                    newloveList[2]=inc(loveList[2+1]);
+                    newlikeList[2]=inc(likeList[2+1]);
+                    newhateList[2]=dec(hateList[2+1]);
+                }
+
+                break;
+            case "Reaction Time":
+
+                if(reviewBox.getValue().equals("Game moved too slow")){
+
+                    newloveList[3]=dec(loveList[3+1]);
+                    newlikeList[3]=dec(likeList[3+1]);
+                    newhateList[3]=inc(hateList[3+1]);
+                }else{
+                    newloveList[3]=inc(loveList[3+1]);
+                    newlikeList[3]=inc(likeList[3+1]);
+                    newhateList[3]=dec(hateList[3+1]);
+                }
+                break;
+            case "Competitiveness":
+
+                if(reviewBox.getValue().equals("Game wasn't competitive enough")){
+
+                    newloveList[6]=dec(loveList[6+1]);
+                    newlikeList[6]=dec(likeList[6+1]);
+                    newhateList[6]=inc(hateList[6+1]);
+                }else{
+                    newloveList[6]=inc(loveList[6+1]);
+                    newlikeList[6]=inc(likeList[6+1]);
+                    newhateList[6]=dec(hateList[6+1]);
+                }
+                break;
+            case "Attention To Detail":
+
+                if(reviewBox.getValue().equals("Game wasn't complex enough")){
+
+                    newloveList[1]=dec(loveList[1+1]);
+                    newlikeList[1]=dec(likeList[1+1]);
+                    newhateList[1]=inc(hateList[1+1]);
+                }else{
+                    newloveList[1]=inc(loveList[1+1]);
+                    newlikeList[1]=inc(likeList[1+1]);
+                    newhateList[1]=dec(hateList[1+1]);
+                }
+                break;
+            case "Anxiety":
+
+                if(reviewBox.getValue().equals("Game wasn't relaxing enough")){
+                    newloveList[0]=dec(loveList[0+1]);
+                    newlikeList[0]=dec(likeList[0+1]);
+                    newhateList[0]=inc(hateList[0+1]);
+
+                }else{
+                    newloveList[0]=inc(loveList[0+1]);
+                    newlikeList[0]=inc(likeList[0+1]);
+                    newhateList[0]=dec(hateList[0+1]);
+                }
+                break;
+            case "Planning":
+                if(reviewBox.getValue().equals("Game didn't require enough thinking")){
+
+                    newloveList[7]=dec(loveList[7+1]);
+                    newlikeList[7]=dec(likeList[7+1]);
+                    newhateList[7]=inc(hateList[7+1]);
+                }else{
+                    newloveList[7]=inc(loveList[7+1]);
+                    newlikeList[7]=inc(likeList[7+1]);
+                    newhateList[7]=dec(hateList[7+1]);
+                }
+                break;
+            case "Cooperation":
+
+                if(reviewBox.getValue().equals("Game was too individual")){
+
+                    newloveList[8]=dec(loveList[8+1]);
+                    newlikeList[8]=dec(likeList[8+1]);
+                    newhateList[8]=inc(hateList[8+1]);
+
+                }else{
+                    newloveList[8]=inc(loveList[8+1]);
+                    newlikeList[8]=inc(likeList[8+1]);
+                    newhateList[8]=dec(hateList[8+1]);
+                }
+                break;
+            case "Excitement":
+
+                if(reviewBox.getValue().equals("Game was too boring")){
+
+                    newloveList[5]=dec(loveList[5+1]);
+                    newlikeList[5]=dec(likeList[5+1]);
+                    newhateList[5]=inc(hateList[5+1]);
+                }else{
+                    newloveList[5]=inc(loveList[5+1]);
+                    newlikeList[5]=inc(likeList[5+1]);
+                    newhateList[5]=dec(hateList[5+1]);
+                }
+                break;
+            case "Persistence":
+
+                if(reviewBox.getValue().equals("Game was too short")){
+                    newloveList[4]=dec(loveList[4+1]);
+                    newlikeList[4]=dec(likeList[4+1]);
+                    newhateList[4]=inc(hateList[2+1]);
+                }else{
+                    newloveList[4]=inc(loveList[4+1]);
+                    newlikeList[4]=inc(likeList[4+1]);
+                    newhateList[4]=dec(hateList[4+1]);
+                }
+                break;
+            default:
+
+                break;
+
+        }
+        FuzzyFileWriter.writeFisFile(path,genreBox.getValue(),newloveList,newlikeList,newhateList);
+
+    }
+    private String inc(String thing){
+        if(thing.equals("low")){
+            return "medium";
+        }else if(thing.equals("medium")){
+            return "high";
+        }else{
+            return thing;
+        }
+    }
+    private String dec(String thing){
+        if(thing.equals("high")){
+            return "medium";
+        }else if(thing.equals("medium")){
+            return "low";
+        }else{
+            return thing;
+        }
     }
 
     public String pickRandomGameFromGenre(String topGenre)

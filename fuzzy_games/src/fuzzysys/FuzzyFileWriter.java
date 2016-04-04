@@ -247,7 +247,7 @@ public class FuzzyFileWriter {
         }
         thing.newLine();
     }
-
+    // first index holds what rule the list is linked with
     public static String[] getLoveList(String path){
         try{
             BufferedReader input = new BufferedReader(new FileReader(path));
@@ -265,6 +265,7 @@ public class FuzzyFileWriter {
         }
 
     }
+    // first index holds what rule the list is linked with
     public static String[] getlikeList(String path){
         try{
             BufferedReader input = new BufferedReader(new FileReader(path));
@@ -282,6 +283,7 @@ public class FuzzyFileWriter {
         }
 
     }
+    // first index holds what rule the list is linked with
     public static String[] gethateList(String path){
         try{
             BufferedReader input = new BufferedReader(new FileReader(path));
