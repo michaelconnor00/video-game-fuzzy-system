@@ -6,9 +6,9 @@ package fuzzysys;
  */
 public enum TraitValue {
 
-    HIGH("God Like"),
-    MEDIUM("Could Care Less"),
-    LOW("Inept");
+    HIGH("high"),
+    MEDIUM("ok"),
+    LOW("low");
 
     private String displayName;
 
