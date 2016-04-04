@@ -2,6 +2,7 @@ package fuzzysys;
 
 import java.util.ArrayList;
 import net.sourceforge.jFuzzyLogic.FIS;
+import net.sourceforge.jFuzzyLogic.rule.Rule;
 /**
  * Created by michaelconnor on 2016-03-19.
  */
@@ -27,8 +28,15 @@ public class Main {
         for (Rank rank : list){
             System.out.println(rank.toString());
         }
-        FIS file =FuzzyFileWriter.writeFisFile("test.fcl","test");
+        String[] love = {"high","high","low","high","low","high","low","high","high"};
+        String[] like = {"medium","medium","medium","medium","medium","medium","medium","medium","medium"};
+        String[] hate = {"low","low","high","low","high","low","high","low","low"};
+        FIS file =FuzzyFileWriter.writeFisFile("test.fcl","test",love,like,hate);
         file.setVariable("anxiety",3.9);
+        System.out.println(file.getFunctionBlock("test").getFuzzyRuleBlock("No1").getRules());
+        for( Rule r : file.getFunctionBlock("test").getFuzzyRuleBlock("No1").getRules() ){
+            System.out.println(r);
+    }
         System.out.println(file.getVariable("anxiety"));
     }
 }

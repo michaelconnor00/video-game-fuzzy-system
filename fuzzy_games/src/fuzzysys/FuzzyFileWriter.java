@@ -11,6 +11,7 @@ import net.sourceforge.jFuzzyLogic.rule.RuleBlock;
 import net.sourceforge.jFuzzyLogic.rule.RuleTerm;
 import net.sourceforge.jFuzzyLogic.rule.RuleExpression;
 import net.sourceforge.jFuzzyLogic.ruleConnectionMethod.RuleConnectionMethodAndMin;
+import net.sourceforge.jFuzzyLogic.rule.Rule;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -19,31 +20,29 @@ import java.io.IOException;
 public class FuzzyFileWriter {
 
 
-    public static FIS writeFisFile(String path, String name) {
 
-        FIS fileToWrite = FIS.load(path, true);
-        if (fileToWrite == null) {
+    public static FIS writeFisFile(String path, String name,String[] lovelevels,String[] likelevels,String[] hatelevels) {
+
+
+
             try {
                 BufferedWriter thing = new BufferedWriter(new FileWriter(path));
-                thing.write("FUNCTION_BLOCK game_genre");
+                thing.write("FUNCTION_BLOCK "+name);
                 thing.newLine();
                 addVariableInputBlockCode(thing);
                 addVariableOutputCode(thing);
                 addFuzzyRules(thing);
                 addDefuzzyRules(thing);
-                addRuleBlock(thing);
+                addRuleBlock(thing,lovelevels,likelevels,hatelevels);
                 thing.write("END_FUNCTION_BLOCK");
 
                 thing.close();
-                fileToWrite = FIS.load(path, false);
-                if (fileToWrite == null) {
-                    System.err.println("could not make file");
-                }
+
             } catch (IOException e) {
                 System.err.println("could not make file");
             }
-        }
-        return fileToWrite;
+            FIS fileToWrite = FIS.load(path, true);
+            return fileToWrite;
     }
 
     private static void addVariableInputBlockCode(BufferedWriter thing) throws IOException {
@@ -194,32 +193,42 @@ public class FuzzyFileWriter {
         thing.write("END_DEFUZZIFY");
         thing.newLine();
     }
-    private static void addRuleBlock(BufferedWriter thing)throws IOException{
+    private static void addRuleBlock(BufferedWriter thing,String[] Lovelevels,String[] likelevels,String[] Hatelevels)throws IOException{
         thing.write("RULEBLOCK No1");
         thing.newLine();
         thing.write("AND : MIN;");
         thing.newLine();
         thing.write("ACCU : MAX;");
         thing.newLine();
+        addLoveRule(thing,Lovelevels);
+        addLikeRule(thing,likelevels);
+        addHateRule(thing,Hatelevels);
         thing.write("END_RULEBLOCK");
         thing.newLine();
     }
 
-    public static void addRule(FIS file){
+    public static void addLoveRule(BufferedWriter thing,String[] love)throws IOException{
 
-        RuleBlock rules =file.getFunctionBlock("test").getFuzzyRuleBlock("No1");
-        Rule testRule = new Rule();
-        RuleTerm term1 = new RuleTerm(file.getVariable("anxiety"), "medium", false);
-        RuleTerm term2 = new RuleTerm(file.getVariable("attention_to_detail"), "medium", false);
-        RuleTerm term3 = new RuleTerm(file.getVariable("patience"), "medium", false);
-        RuleTerm term4 = new RuleTerm(file.getVariable("reaction_time"), "medium", false);
-        RuleTerm term5= new RuleTerm(file.getVariable("persistence"), "medium", false);
-        RuleTerm term6 = new RuleTerm(file.getVariable("excitement"), "medium", false);
-        RuleTerm term7 = new RuleTerm(file.getVariable("competitiveness"), "medium", false);
-        RuleTerm term8 = new RuleTerm(file.getVariable("planning"), "medium", false);
-        RuleTerm term9 = new RuleTerm(file.getVariable("teamwork"), "medium", false);
+        thing.write("RULE 1 : IF anxiety IS "+love[0]+ " AND attention_to_detail IS "+love[1]+" AND patience IS "+love[2]+" AND "+
+        "reaction_time IS "+love[3]+" AND persistence IS "+love[4]+" AND excitement IS "+love[5]+" AND "+
+        "competitiveness IS "+love[6]+" AND planning IS "+love[7]+" AND teamwork IS "+love[8]+
+        " THEN compatibility IS love;");
+        thing.newLine();
+    }
+    public static void addLikeRule(BufferedWriter thing,String[] love)throws IOException{
 
-       // RuleExpression antecedentAnd = new RuleExpression(term1, term2,term3,term4,term5,term6,term7,term8,term9, new RuleConnectionMethodAndMin());
+        thing.write("RULE 2 : IF anxiety IS "+love[0]+ " AND attention_to_detail IS "+love[1]+" AND patience IS "+love[2]+" AND "+
+                "reaction_time IS "+love[3]+" AND persistence IS "+love[4]+" AND excitement IS "+love[5]+" AND "+
+                "competitiveness IS "+love[6]+" AND planning IS "+love[7]+" AND teamwork IS "+love[8]+
+                " THEN compatibility IS like;");
+        thing.newLine();
+    }
+    public static void addHateRule(BufferedWriter thing,String[] love)throws IOException{
 
+        thing.write("RULE 3 : IF anxiety IS "+love[0]+ " AND attention_to_detail IS "+love[1]+" AND patience IS "+love[2]+" AND "+
+                "reaction_time IS "+love[3]+" AND persistence IS "+love[4]+" AND excitement IS "+love[5]+" AND "+
+                "competitiveness IS "+love[6]+" AND planning IS "+love[7]+" AND teamwork IS "+love[8]+
+                " THEN compatibility IS hate;");
+        thing.newLine();
     }
 }
