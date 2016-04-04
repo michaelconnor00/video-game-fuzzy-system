@@ -2,11 +2,7 @@ package fuzzysys;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Class that contains the Inference logic
@@ -75,22 +71,5 @@ public class GenreEngine {
             }
         }
     }
-
-//    private double arrayMin(double[] list){
-//        double minValue = -1.0;
-//        for (double value : list){
-//            if (minValue < 0.0){
-//                // First index of list
-//                minValue = value;
-//            } else {
-//                // If value is smaller, overwrite
-//                if (value < minValue) {
-//                    minValue = value;
-//                }
-//            }
-//
-//        }
-//        return minValue;
-//    }
 
 }
