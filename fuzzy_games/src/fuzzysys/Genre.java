@@ -24,12 +24,11 @@ public enum Genre {
         String file_sep = System.getProperty("file.separator");
 
         // For Intellij files location
-        String dir = System.getProperty("user.dir") + file_sep + "fuzzy_games" +
-            file_sep + "src" + file_sep + "fuzzysys" + file_sep + "fcl" + file_sep;
+//        String dir = System.getProperty("user.dir") + file_sep + "fuzzy_games" +
+//            file_sep + "src" + file_sep + "fuzzysys" + file_sep + "fcl" + file_sep;
 
         // For jar build file location.
-//        String dir = System.getProperty("user.dir") + file_sep + "fuzzy_games" +
-//            file_sep + "fuzzysys" + file_sep + "fcl" + file_sep;
+        String dir = System.getProperty("user.dir") + file_sep + "fcl" + file_sep;
 
         this.file_name = dir + name;
     }

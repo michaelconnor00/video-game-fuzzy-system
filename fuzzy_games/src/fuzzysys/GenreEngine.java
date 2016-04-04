@@ -25,6 +25,7 @@ public class GenreEngine {
 
         for (Genre genre_fcl : Genre.values()){
             System.out.println(genre_fcl.getFileName());
+            // Load the Fuzzy system from the FCL file for that genre.
             FIS fis = FIS.load(genre_fcl.getFileName(), true);
 
             if( fis == null ) { // Error while loading?
@@ -43,8 +44,10 @@ public class GenreEngine {
             fis.setVariable("planning", planning);
             fis.setVariable("teamwork", teamwork);
 
+            // Run the Fuzzy system
             fis.evaluate();
 
+            // Get the output from fuzzy systems and add to the List.
             double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
             addToList(genre_fcl, outputValue);
             System.out.println("Output Value: " + outputValue);
@@ -53,9 +56,13 @@ public class GenreEngine {
         return this.rankedGenres;
     }
 
+    /**
+     * Function to add ranking to a list based on descending order.
+     * @param genre
+     * @param compatibilityValue
+     */
     private void addToList(Genre genre, double compatibilityValue){
         Rank newRanking = new Rank(genre, compatibilityValue);
-        // TODO iterate through all items in ranked Genres and insert the new Rank
         if (this.rankedGenres.isEmpty()){
             this.rankedGenres.add(newRanking);
         } else {

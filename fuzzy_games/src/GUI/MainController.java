@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * Main Controller for the Application. Run this file.
  * Created by Nick Taylor on 3/20/2016.
  */
 public class MainController extends Application {
@@ -158,9 +159,6 @@ public class MainController extends Application {
 
     //controls the save button functionality
     //updates all trait variables
-    //TODO add code to show output of GenreEngine
-    //TODO add code to adjust labels showing top genres
-    //TODO add code to randomly grab a game in the top genre
     @FXML
     private void handleSaveButton() {
 
@@ -272,7 +270,6 @@ public class MainController extends Application {
 
     }
 
-    //TODO add learning file stuff here
     @FXML
     public void handleFinalLearningButton()
     {
