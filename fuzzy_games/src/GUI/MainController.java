@@ -272,11 +272,12 @@ public class MainController extends Application {
 
     }
 
-    //TODO add learning file stuff here
+    //effects the change from the learning interface
     @FXML
     public void handleFinalLearningButton()
     {
         String path = genreBox.getValue();
+        // determin which genra file is being modified
         switch(genreBox.getValue()){
             case "FirstPersonShooter":
                 path = Genre.SHOOTER.getFile_name();
@@ -307,11 +308,11 @@ public class MainController extends Application {
         newloveList=new String[9];
         newlikeList=new String[9];
         newhateList=new String[9];
-
+        //get old values from file at path
         loveList = FuzzyFileWriter.getLoveList(path);
         likeList = FuzzyFileWriter.getlikeList(path);
         hateList = FuzzyFileWriter.gethateList(path);
-
+        // copy old values to new arrys
         for(int i=0;i<9;i++){
 
             newloveList[i]=loveList[i+1];
@@ -320,14 +321,17 @@ public class MainController extends Application {
         }
 
        //atribue input order is (1)anxiety,(2)attention to detale, (3)patience, (4)reaction time, (5)persistance, (6)exitment, (7)competitiveness, (8)planning, (9)teamwork
+        //for each atribute the system will adjust the values in the new lists to mach the change
         switch (traitBox.getValue())
         {
             case "Patience":
+                //needs patence reqirment needs to increase
                 if(reviewBox.getValue().equals("Game was too slow")){
 
                     newloveList[2]=dec(loveList[2+1]);
                     newlikeList[2]=dec(likeList[2+1]);
                     newhateList[2]=inc(hateList[2+1]);
+                    //needs patence reqirment needs to decrease
                 }else{
                     newloveList[2]=inc(loveList[2+1]);
                     newlikeList[2]=inc(likeList[2+1]);
@@ -443,6 +447,7 @@ public class MainController extends Application {
                 break;
 
         }
+        //overwrites the file at the path with the new one
         FuzzyFileWriter.writeFisFile(path,genreBox.getValue(),newloveList,newlikeList,newhateList);
 
     }
