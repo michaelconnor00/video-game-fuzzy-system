@@ -158,9 +158,7 @@ public class MainController extends Application {
 
     //controls the save button functionality
     //updates all trait variables
-    //TODO add code to show output of GenreEngine
-    //TODO add code to adjust labels showing top genres
-    //TODO add code to randomly grab a game in the top genre
+    //Starts the GenreEngine to run the fuzzy system
     @FXML
     private void handleSaveButton() {
 
@@ -178,6 +176,8 @@ public class MainController extends Application {
 
     }
 
+    //dynamically changes what is present in the final dropdown menu for the
+    //learning portion on the GUI
     @FXML
     private void updateReviewBox()
     {
@@ -237,6 +237,7 @@ public class MainController extends Application {
 
 
 
+    //runs the code to get the overall ranking of genres based on input traits
     public void calculateRanks()
     {
         //Fuzzy engine stuff
@@ -272,7 +273,8 @@ public class MainController extends Application {
 
     }
 
-    //TODO add learning file stuff here
+
+    //handles changing the rulebase based on GUI options
     @FXML
     public void handleFinalLearningButton()
     {
@@ -465,6 +467,7 @@ public class MainController extends Application {
         }
     }
 
+    //takes the top genre, and picks a game from that list randomly
     public String pickRandomGameFromGenre(String topGenre)
     {
         String gameTitle = "";
