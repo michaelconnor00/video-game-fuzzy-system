@@ -219,7 +219,7 @@ public class FuzzyFileWriter {
         RuleTerm term8 = new RuleTerm(file.getVariable("planning"), "medium", false);
         RuleTerm term9 = new RuleTerm(file.getVariable("teamwork"), "medium", false);
 
-        RuleExpression antecedentAnd = new RuleExpression(term1, term2,term3,term4,term5,term6,term7,term8,term9, new RuleConnectionMethodAndMin());
+       // RuleExpression antecedentAnd = new RuleExpression(term1, term2,term3,term4,term5,term6,term7,term8,term9, new RuleConnectionMethodAndMin());
 
 
 

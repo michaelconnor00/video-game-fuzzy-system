@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.Scene;
@@ -50,6 +51,14 @@ public class MainController extends Application {
     private ChoiceBox<String> traitBox;
     @FXML
     private ChoiceBox<String> reviewBox;
+
+
+    @FXML
+    private Label topChoiceLabel;
+    @FXML
+    private Label secondChoiceLabel;
+    @FXML
+    private Label thirdChoiceLabel;
 
     //working memory variables
     private double patience;
@@ -242,8 +251,26 @@ public class MainController extends Application {
                 reactionTime, persistence, excitement, competitiveness, planning, cooperation);
 
         //test print the rank list
+        int counter = 0;
         for (Rank rank : list) {
             System.out.println(rank.toString());
+            if(counter == 0)
+            {
+                topChoiceLabel.setText("Top Choice: " + rank.getGenre());
+            }
+            else if(counter == 1)
+            {
+                secondChoiceLabel.setText("2nd Choice: " + rank.getGenre());
+            }
+            else if(counter == 2)
+            {
+                thirdChoiceLabel.setText("3rd Choice: " + rank.getGenre());
+            }
+
+            counter++;
+
         }
+
+
     }
 }

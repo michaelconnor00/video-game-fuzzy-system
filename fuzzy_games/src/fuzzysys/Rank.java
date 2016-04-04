@@ -21,4 +21,9 @@ public class Rank{
     public String toString() {
         return this.genre + " : " + this.compatibility;
     }
+
+    public String getGenre()
+    {
+        return "" + genre;
+    }
 }
