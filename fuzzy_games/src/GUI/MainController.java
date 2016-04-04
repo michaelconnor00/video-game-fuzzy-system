@@ -239,13 +239,6 @@ public class MainController extends Application {
 
     public void calculateRanks()
     {
-        System.out.println(anxiety);
-        System.out.println(attentionToDetail);
-        System.out.println(patience);
-        System.out.println(reactionTime);
-        System.out.println(persistence);
-        System.out.println(excitement);
-
         //Fuzzy engine stuff
 
         //Throw values from GUI into GenreEngine
@@ -307,28 +300,25 @@ public class MainController extends Application {
                 path = Genre.FIGHTING.getFile_name();
                 break;
         }
-//        System.out.println(path+"place 1");
 
+        String[] loveList, likeList, hateList;
+        String[] newloveList, newlikeList, newhateList;
 
-        String[] loveList,likeList,hateList;
-        String[] newloveList,newlikeList,newhateList;
         newloveList=new String[9];
         newlikeList=new String[9];
         newhateList=new String[9];
-//        System.out.println(path+"place 2");
+
         loveList = FuzzyFileWriter.getLoveList(path);
         likeList = FuzzyFileWriter.getlikeList(path);
         hateList = FuzzyFileWriter.gethateList(path);
-//        System.out.println(path+"place 3");
-        //System.out.println(loveList);
-        //System.out.println(likeList);
-        //System.out.println(hateList);
+
         for(int i=0;i<9;i++){
 
             newloveList[i]=loveList[i+1];
             newlikeList[i]=likeList[i+1];
             newhateList[i]=hateList[i+1];
         }
+
        //atribue input order is (1)anxiety,(2)attention to detale, (3)patience, (4)reaction time, (5)persistance, (6)exitment, (7)competitiveness, (8)planning, (9)teamwork
         switch (traitBox.getValue())
         {

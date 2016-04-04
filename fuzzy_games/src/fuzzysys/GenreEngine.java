@@ -32,6 +32,7 @@ public class GenreEngine {
                 return null;
             }
 
+            // Set the input values for the fuzzy system.
             fis.setVariable("anxiety", anxiety);
             fis.setVariable("attention_to_detail", attentionToDetail);
             fis.setVariable("patience", patience);
@@ -46,7 +47,7 @@ public class GenreEngine {
 
             double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
             addToList(genre_fcl, outputValue);
-            System.out.println(outputValue);
+            System.out.println("Output Value: " + outputValue);
         }
 
         return this.rankedGenres;

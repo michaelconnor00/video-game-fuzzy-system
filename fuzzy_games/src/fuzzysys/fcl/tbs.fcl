@@ -1,7 +1,7 @@
 //love,high,high,medium,medium,high,low,low,high,medium,
 //like,medium,medium,low,medium,medium,medium,medium,low,medium,
 //hate,low,low,medium,medium,low,high,high,low,medium,
-FUNCTION_BLOCK Turn-Based Strategy
+FUNCTION_BLOCK TurnBasedStrategy
 VAR_INPUT
    anxiety : REAL;
    attention_to_detail : REAL;
