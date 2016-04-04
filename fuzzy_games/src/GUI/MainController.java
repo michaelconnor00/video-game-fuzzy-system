@@ -159,6 +159,7 @@ public class MainController extends Application {
 
     //controls the save button functionality
     //updates all trait variables
+    //Starts the GenreEngine to run the fuzzy system
     @FXML
     private void handleSaveButton() {
 
@@ -176,6 +177,8 @@ public class MainController extends Application {
 
     }
 
+    //dynamically changes what is present in the final dropdown menu for the
+    //learning portion on the GUI
     @FXML
     private void updateReviewBox()
     {
@@ -235,6 +238,7 @@ public class MainController extends Application {
 
 
 
+    //runs the code to get the overall ranking of genres based on input traits
     public void calculateRanks()
     {
         //Fuzzy engine stuff
@@ -270,12 +274,12 @@ public class MainController extends Application {
 
     }
 
-    //effects the change from the learning interface
+
+    //handles changing the rulebase based on GUI options
     @FXML
     public void handleFinalLearningButton()
     {
         String path = genreBox.getValue();
-        // determin which genra file is being modified
         switch(genreBox.getValue()){
             case "FirstPersonShooter":
                 path = Genre.SHOOTER.getFile_name();
@@ -306,11 +310,11 @@ public class MainController extends Application {
         newloveList=new String[9];
         newlikeList=new String[9];
         newhateList=new String[9];
-        //get old values from file at path
+
         loveList = FuzzyFileWriter.getLoveList(path);
         likeList = FuzzyFileWriter.getlikeList(path);
         hateList = FuzzyFileWriter.gethateList(path);
-        // copy old values to new arrys
+
         for(int i=0;i<9;i++){
 
             newloveList[i]=loveList[i+1];
@@ -319,17 +323,14 @@ public class MainController extends Application {
         }
 
        //atribue input order is (1)anxiety,(2)attention to detale, (3)patience, (4)reaction time, (5)persistance, (6)exitment, (7)competitiveness, (8)planning, (9)teamwork
-        //for each atribute the system will adjust the values in the new lists to mach the change
         switch (traitBox.getValue())
         {
             case "Patience":
-                //needs patence reqirment needs to increase
                 if(reviewBox.getValue().equals("Game was too slow")){
 
                     newloveList[2]=dec(loveList[2+1]);
                     newlikeList[2]=dec(likeList[2+1]);
                     newhateList[2]=inc(hateList[2+1]);
-                    //needs patence reqirment needs to decrease
                 }else{
                     newloveList[2]=inc(loveList[2+1]);
                     newlikeList[2]=inc(likeList[2+1]);
@@ -433,7 +434,7 @@ public class MainController extends Application {
                 if(reviewBox.getValue().equals("Game was too short")){
                     newloveList[4]=dec(loveList[4+1]);
                     newlikeList[4]=dec(likeList[4+1]);
-                    newhateList[4]=inc(hateList[4+1]);
+                    newhateList[4]=inc(hateList[2+1]);
                 }else{
                     newloveList[4]=inc(loveList[4+1]);
                     newlikeList[4]=inc(likeList[4+1]);
@@ -445,7 +446,6 @@ public class MainController extends Application {
                 break;
 
         }
-        //overwrites the file at the path with the new one
         FuzzyFileWriter.writeFisFile(path,genreBox.getValue(),newloveList,newlikeList,newhateList);
 
     }
@@ -468,6 +468,7 @@ public class MainController extends Application {
         }
     }
 
+    //takes the top genre, and picks a game from that list randomly
     public String pickRandomGameFromGenre(String topGenre)
     {
         String gameTitle = "";
