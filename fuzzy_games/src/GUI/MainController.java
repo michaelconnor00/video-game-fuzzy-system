@@ -73,10 +73,11 @@ public class MainController extends Application {
 
     public static void main(String[] args)
     {
+        engine = new GenreEngine();
         launch(args);
 
         //Start fuzzy engine
-        engine = new GenreEngine();
+
     }
 
     @Override
