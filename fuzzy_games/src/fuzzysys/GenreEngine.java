@@ -51,6 +51,7 @@ public class GenreEngine {
 //            fis.getVariable("compatibility").chartDefuzzifier(true);
             double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
             addToList(genre_fcl, outputValue);
+            System.out.println(outputValue);
         }
 
         return this.rankedGenres;

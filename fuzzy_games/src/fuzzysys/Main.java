@@ -13,14 +13,14 @@ public class Main {
 
         ArrayList<Rank> list = engine.getGenreList(
             2.0, // anxiety
-            4.0, // atten detail
-            4.0, // patience
-            2.0, // reactionTime
-            4.0, // persistence
-            0.5, // excitement
-            0.5, // competitiveness
-            2.0, // planning
-            0.5 // teamwork
+            0.1, // atten detail
+            3.0, // patience
+            3.9, // reactionTime
+            3.0, // persistence
+            3.9, // excitement
+            3.9, // competitiveness
+            0.1, // planning
+            3.9 // teamwork
         );
 
         System.out.println("before array print");
