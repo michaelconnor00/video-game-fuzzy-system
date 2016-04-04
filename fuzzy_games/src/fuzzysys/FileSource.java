@@ -9,13 +9,14 @@ package fuzzysys;
 
 import java.io.*;
 
+
 public class FileSource {
     String path;
     private BufferedReader input;
     private BufferedWriter output;
 
     public FileSource (){
-        path="test.txt";
+        path="C:\\Users\\johnathan\\Documents\\GitHub\\video-game-fuzzy-system\\fuzzy_games\\src\\fuzzysys\\fcl\\test.fcl";
 
     }
     public FileSource (String file){
@@ -171,7 +172,7 @@ public class FileSource {
             System.err.println("could not read file");
         }
 
-
+        closeRead();
         return anser;
     }
     private TraitValue getTrait(String in){

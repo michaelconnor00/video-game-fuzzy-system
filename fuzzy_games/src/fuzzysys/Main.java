@@ -1,7 +1,7 @@
 package fuzzysys;
 
 import java.util.ArrayList;
-
+import net.sourceforge.jFuzzyLogic.FIS;
 /**
  * Created by michaelconnor on 2016-03-19.
  */
@@ -19,7 +19,7 @@ public class Main {
             3.0, // persistence
             3.9, // excitement
             3.9, // competitiveness
-            0.1, // planning
+            3.1, // planning
             3.9 // teamwork
         );
 
@@ -27,5 +27,8 @@ public class Main {
         for (Rank rank : list){
             System.out.println(rank.toString());
         }
+        FIS file =FuzzyFileWriter.writeFisFile("test.fcl","test");
+        file.setVariable("anxiety",3.9);
+        System.out.println(file.getVariable("anxiety"));
     }
 }
