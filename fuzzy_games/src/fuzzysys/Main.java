@@ -36,7 +36,23 @@ public class Main {
         System.out.println(file.getFunctionBlock("test").getFuzzyRuleBlock("No1").getRules());
         for( Rule r : file.getFunctionBlock("test").getFuzzyRuleBlock("No1").getRules() ){
             System.out.println(r);
-    }
+        }
+        String[] love1,like1,hate1;
+        love1 = FuzzyFileWriter.getLoveList("test.fcl");
+        like1 = FuzzyFileWriter.getlikeList("test.fcl");
+        hate1=FuzzyFileWriter.gethateList("test.fcl");
+        for(int i=0;i<10;i++){
+            System.out.print(love1[i]+",");
+        }
+        System.out.println();
+        for(int i=0;i<10;i++){
+            System.out.print(like1[i]+",");
+        }
+        System.out.println();
+        for(int i=0;i<10;i++){
+            System.out.print(hate1[i]+",");
+        }
+        System.out.println();
         System.out.println(file.getVariable("anxiety"));
     }
 }
