@@ -1,118 +1,79 @@
-//love,high,high,high,medium,high,low,low,high,medium,
-//like,medium,medium,medium,medium,medium,medium,medium,low,medium,
-//hate,low,low,low,medium,low,high,high,low,medium,
-FUNCTION_BLOCK game_genre
-
-// Define input variables
+//love,high,high,medium,medium,high,low,low,high,medium,
+//like,medium,medium,low,medium,medium,medium,medium,low,medium,
+//hate,low,low,medium,medium,low,high,high,low,medium,
+FUNCTION_BLOCK Turn-Based Strategy
 VAR_INPUT
-    anxiety : REAL;
-    attention_to_detail : REAL;
-    patience : REAL;
-    reaction_time : REAL;
-    persistence : REAL;
-    excitement : REAL;
-    competitiveness : REAL;
-    planning : REAL;
-    teamwork : REAL;
+   anxiety : REAL;
+   attention_to_detail : REAL;
+   patience : REAL;
+   reaction_time : REAL;
+   persistence : REAL;
+   excitement : REAL;
+   competitiveness : REAL;
+planning : REAL;
+   teamwork : REAL;
 END_VAR
-
-// Define output variable
 VAR_OUTPUT
-    compatibility : REAL;
+   compatibility : REAL;
 END_VAR
-
-// Fuzzify input variables
-
 FUZZIFY anxiety
-    TERM low := (0, 1) (4, 0);
-    TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
-END_FUZZIFY
 
+    TERM low := (0, 1) (2, 0);
+    TERM medium := (0, 0) (2, 1) (4, 0);
+    TERM high := (2, 0) (4, 1);
+END_FUZZIFY
 FUZZIFY attention_to_detail
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
+    TERM high := (2, 0) (4, 1);
 END_FUZZIFY
-
 FUZZIFY patience
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
+    TERM high := (2, 0) (4, 1);
 END_FUZZIFY
-
 FUZZIFY reaction_time
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
+    TERM high := (2, 0) (4, 1);
 END_FUZZIFY
-
 FUZZIFY persistence
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
+    TERM high := (2, 0) (4, 1);
 END_FUZZIFY
-
 FUZZIFY competitiveness
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
+    TERM high := (2, 0) (4, 1);
 END_FUZZIFY
-
 FUZZIFY planning
-    TERM low := (0, 1) (4, 0);
-    TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
-END_FUZZIFY
 
+    TERM low := (0, 1) (2, 0);
+    TERM medium := (0, 0) (2, 1) (4, 0);
+    TERM high := (2, 0) (4, 1);
+END_FUZZIFY
 FUZZIFY teamwork
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
+    TERM high := (2, 0) (4, 1);
 END_FUZZIFY
-
 FUZZIFY excitement
-    TERM low := (0, 1) (4, 0);
+    TERM low := (0, 1) (2, 0);
     TERM medium := (0, 0) (2, 1) (4, 0);
-    TERM high := (0,0) (4, 1);
-END_FUZZIFY
-
-
-// Defuzzify output variable
+    TERM high := (2, 0) (4, 1);END_FUZZIFY
 DEFUZZIFY compatibility
-    TERM hate := (0, 1) (2, 0);
-    TERM like := (0, 0) (2, 1) (4, 0);
-    TERM love := (2, 0) (4, 1);
-    // Use 'Center Of Gravity' defuzzification method
-    METHOD : COG;
-    // Default value is 0 (if no rule activates defuzzifier)
-    //DEFAULT := 0;
+   TERM hate := (0, 1) (2, 0);
+TERM like := (0, 0) (2, 1) (4, 0);
+TERM love := (2, 0) (4, 1);
+METHOD : COG;
+DEFAULT := 0;
 END_DEFUZZIFY
-
-
 RULEBLOCK No1
-    // Use 'min' for 'and' (also implicit use 'max'
-    // for 'or' to fulfill DeMorgan's Law)
-    AND : MIN;
-    // Use 'min' activation method
-    ACT : MIN;
-    // Use 'max' accumulation method
-    ACCU : MAX;
-
-    RULE 1 : IF anxiety IS high AND attention_to_detail IS high AND patience IS high AND
-                reaction_time IS medium AND persistence IS high AND excitement IS low AND
-                competitiveness IS low AND planning IS high AND teamwork IS medium
-                THEN compatibility IS love;
-
-    RULE 2 : IF anxiety IS medium AND attention_to_detail IS medium AND patience IS medium AND
-                 reaction_time IS medium AND persistence IS medium AND excitement IS medium AND
-                 competitiveness IS medium AND planning IS low AND teamwork IS medium
-                 THEN compatibility IS like;
-
-    RULE 3 : IF anxiety IS low AND attention_to_detail IS low AND patience IS low AND
-                 reaction_time IS medium AND persistence IS low AND excitement IS high AND
-                 competitiveness IS high AND planning IS low AND teamwork IS medium
-                 THEN compatibility IS hate;
+AND : MIN;
+ACCU : MAX;
+RULE 1 : IF anxiety IS high AND attention_to_detail IS high AND patience IS medium AND reaction_time IS medium AND persistence IS high AND excitement IS low AND competitiveness IS low AND planning IS high AND teamwork IS medium THEN compatibility IS love;
+RULE 2 : IF anxiety IS medium AND attention_to_detail IS medium AND patience IS low AND reaction_time IS medium AND persistence IS medium AND excitement IS medium AND competitiveness IS medium AND planning IS low AND teamwork IS medium THEN compatibility IS like;
+RULE 3 : IF anxiety IS low AND attention_to_detail IS low AND patience IS medium AND reaction_time IS medium AND persistence IS low AND excitement IS high AND competitiveness IS high AND planning IS low AND teamwork IS medium THEN compatibility IS hate;
 END_RULEBLOCK
-
 END_FUNCTION_BLOCK
