@@ -27,9 +27,9 @@ public class FuzzyFileWriter {
                 BufferedWriter thing = new BufferedWriter(new FileWriter(path));
                 thing.write("FUNCTION_BLOCK game_genre");
                 thing.newLine();
-                addVareableInputBlockCode(thing);
-                addVarableOutputCode(thing);
-                addFuzyyRules(thing);
+                addVariableInputBlockCode(thing);
+                addVariableOutputCode(thing);
+                addFuzzyRules(thing);
                 addDefuzzyRules(thing);
                 addRuleBlock(thing);
                 thing.write("END_FUNCTION_BLOCK");
@@ -46,7 +46,7 @@ public class FuzzyFileWriter {
         return fileToWrite;
     }
 
-    private static void addVareableInputBlockCode(BufferedWriter thing) throws IOException {
+    private static void addVariableInputBlockCode(BufferedWriter thing) throws IOException {
 
         thing.write("VAR_INPUT");
         thing.newLine();
@@ -73,7 +73,7 @@ public class FuzzyFileWriter {
 
     }
 
-    private static void addVarableOutputCode(BufferedWriter thing) throws IOException {
+    private static void addVariableOutputCode(BufferedWriter thing) throws IOException {
 
         thing.write("VAR_OUTPUT");
         thing.newLine();
@@ -85,7 +85,7 @@ public class FuzzyFileWriter {
 
     }
 
-    private static void addFuzyyRules(BufferedWriter thing) throws IOException {
+    private static void addFuzzyRules(BufferedWriter thing) throws IOException {
         thing.write("FUZZIFY anxiety\n");
         thing.newLine();
         thing.write("    TERM low := (0, 1) (2, 0);");
@@ -219,7 +219,9 @@ public class FuzzyFileWriter {
         RuleTerm term8 = new RuleTerm(file.getVariable("planning"), "medium", false);
         RuleTerm term9 = new RuleTerm(file.getVariable("teamwork"), "medium", false);
 
-        RuleExpression antecedentAnd = new RuleExpression(term1, term2,term3,term4,term5,term6,term7,term8,term9, new RuleConnectionMethodAndMin());
+        RuleExpression antecedentAnd = new RuleExpression(
+                term1, term2,term3,term4,term5,term6,term7,term8,term9, new RuleConnectionMethodAndMin()
+        );
 
 
 
