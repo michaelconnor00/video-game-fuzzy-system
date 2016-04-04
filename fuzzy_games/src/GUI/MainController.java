@@ -1,6 +1,7 @@
 package GUI;
 
 import fuzzysys.BehaviouralTraits;
+import fuzzysys.Genre;
 import fuzzysys.GenreEngine;
 import fuzzysys.Rank;
 import javafx.application.Application;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by Nick Taylor on 3/20/2016.
@@ -59,6 +61,8 @@ public class MainController extends Application {
     private Label secondChoiceLabel;
     @FXML
     private Label thirdChoiceLabel;
+    @FXML
+    private Label recommendedGameLabel;
 
     //working memory variables
     private double patience;
@@ -252,11 +256,13 @@ public class MainController extends Application {
 
         //test print the rank list
         int counter = 0;
+        String topGenre = "";
         for (Rank rank : list) {
             System.out.println(rank.toString());
             if(counter == 0)
             {
                 topChoiceLabel.setText("Top Choice: " + rank.getGenre());
+                topGenre = rank.getGenre();
             }
             else if(counter == 1)
             {
@@ -266,11 +272,138 @@ public class MainController extends Application {
             {
                 thirdChoiceLabel.setText("3rd Choice: " + rank.getGenre());
             }
-
             counter++;
-
         }
 
+        //set recommended game
+        String randomGame = pickRandomGameFromGenre(topGenre);
+        recommendedGameLabel.setText(randomGame);
 
+    }
+
+    //TODO add learning file stuff here
+    @FXML
+    public void handleFinalLearningButton()
+    {
+
+    }
+
+    public String pickRandomGameFromGenre(String topGenre)
+    {
+        String gameTitle = "";
+        Random RNG = new Random();
+        int chosenNum = RNG.nextInt(7);
+
+        switch(topGenre)
+        {
+            case "ROLEPLAYING":
+            {
+                String[] RPGList = new String[7];
+                RPGList[0] = "Dragon Age: Inquisition";
+                RPGList[1] = "Dark Souls";
+                RPGList[2] = "Pokemon X";
+                RPGList[3] = "Elder Scrolls V: Skyrim";
+                RPGList[4] = "Legend of Zelda: Ocarina of Time";
+                RPGList[5] = "Mass Effect 2";
+                RPGList[6] = "Final Fantasy VII";
+
+                gameTitle = RPGList[chosenNum];
+            }
+            break;
+
+            case "SHOOTER":
+            {
+                String[] FPSList = new String[7];
+                FPSList[0] = "Halo 2";
+                FPSList[1] = "Destiny";
+                FPSList[2] = "Call of Duty 4";
+                FPSList[3] = "Star Wars: Battlefront";
+                FPSList[4] = "Titanfall";
+                FPSList[5] = "Counterstrike: Global Offensive";
+                FPSList[6] = "Metro: Last Light";
+
+                gameTitle = FPSList[chosenNum];
+            }
+            break;
+
+            case "STRATEGYRTS":
+            {
+                String[] RTSList = new String[7];
+                RTSList[0] = "Starcraft II";
+                RTSList[1] = "Command and Conquor: Red Alert 2";
+                RTSList[2] = "Age of Empires 2";
+                RTSList[3] = "Age of Mythology";
+                RTSList[4] = "Star Wars: Empire at War";
+                RTSList[5] = "Warcraft III";
+                RTSList[6] = "Supreme Commander";
+
+                gameTitle = RTSList[chosenNum];
+            }
+            break;
+
+            case "STRATEGYTURNBASED":
+            {
+                String[] TBSList = new String[7];
+                TBSList[0] = "Civilization V";
+                TBSList[1] = "Galactic Civilization II";
+                TBSList[2] = "Advance Wars: Dual Strike";
+                TBSList[3] = "Fire Emblem: Awakening";
+                TBSList[4] = "Final Fantasy Tactics";
+                TBSList[5] = "Crusader Kings II";
+                TBSList[6] = "Heroes of Might and Magic V";
+
+                gameTitle = TBSList[chosenNum];
+            }
+            break;
+
+            case "SIMULATION":
+            {
+                String[] SimList = new String[7];
+                SimList[0] = "Sim City 4";
+                SimList[1] = "Euro Truck Simulator 2";
+                SimList[2] = "Farm Simulator 2016";
+                SimList[3] = "Street Cleaner Simulator";
+                SimList[4] = "Microsoft Flight Simulator X";
+                SimList[5] = "Ski Region Simulator";
+                SimList[6] = "Roller Coaster Tycoon";
+
+                gameTitle = SimList[chosenNum];
+            }
+            break;
+
+            case "SPORTS":
+            {
+                String[] SportList = new String[7];
+                SportList[0] = "MLB The Show 16";
+                SportList[1] = "FIFA 16";
+                SportList[2] = "NHL 16";
+                SportList[3] = "NBA 2K16";
+                SportList[4] = "Forza Motorsport 6";
+                SportList[5] = "Madden NFL 16";
+                SportList[6] = "Tony Hawk's Pro Skater";
+
+                gameTitle = SportList[chosenNum];
+            }
+            break;
+
+            case "FIGHTING":
+            {
+                String[] FightList = new String[7];
+                FightList[0] = "Super Smash Bros Melee";
+                FightList[1] = "Killer Instinct";
+                FightList[2] = "Mortal Combat X";
+                FightList[3] = "Street Fighter V";
+                FightList[4] = "Divekick";
+                FightList[5] = "Soulcalibur V";
+                FightList[6] = "Injustice: Gods Among Us";
+
+                gameTitle = FightList[chosenNum];
+            }
+            break;
+
+            default: break;
+        }
+
+        return gameTitle;
     }
 }
