@@ -78,13 +78,13 @@ END_FUZZIFY
 
 // Defuzzify output variable
 DEFUZZIFY compatibility
-    TERM hate := (0, 1) (2, 0);
+    TERM hate := (0, 1) (4, 0);
     TERM like := (0, 0) (2, 1) (4, 0);
-    TERM love := (2, 0) (4, 1);
+    TERM love := (0, 0) (4, 1);
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 0 (if no rule activates defuzzifier)
-    DEFAULT := 0;
+    //DEFAULT := 0;
 END_DEFUZZIFY
 
 
