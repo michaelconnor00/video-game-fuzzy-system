@@ -1,4 +1,6 @@
-// main func block
+//love,high,high,high,medium,high,low,low,medium,low,
+//like,medium,medium,medium,medium,medium,medium,medium,medium,medium,
+//hate,medium,low,medium,medium,low,medium,high,low,high,
 FUNCTION_BLOCK game_genre
 
 // Define input variables
