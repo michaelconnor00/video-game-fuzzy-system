@@ -84,7 +84,7 @@ DEFUZZIFY compatibility
     // Use 'Center Of Gravity' defuzzification method
     METHOD : COG;
     // Default value is 0 (if no rule activates defuzzifier)
-    DEFAULT := 0;
+    //DEFAULT := 0;
 END_DEFUZZIFY
 
 
