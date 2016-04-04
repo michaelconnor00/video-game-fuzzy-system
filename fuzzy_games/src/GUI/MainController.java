@@ -285,13 +285,13 @@ public class MainController extends Application {
     {
         String path = genreBox.getValue();
         switch(genreBox.getValue()){
-            case "First Person Shooter":
+            case "FirstPersonShooter":
                 path = Genre.SHOOTER.getFile_name();
                 break;
-            case "Real-Time Strategy":
+            case "RealTimeStrategy":
                 path = Genre.STRATEGYRTS.getFile_name();
                 break;
-            case "Turn-Based Strategy":
+            case "TurnBasedStrategy":
                 path = Genre.STRATEGYTURNBASED.getFile_name();
                 break;
             case "Simulation":
@@ -300,7 +300,7 @@ public class MainController extends Application {
             case "Sport":
                 path = Genre.SPORTS.getFile_name();
                 break;
-            case "Roleplaying Game":
+            case "RoleplayingGame":
                 path = Genre.ROLEPLAYING.getFile_name();
                 break;
             case "Fighting":
