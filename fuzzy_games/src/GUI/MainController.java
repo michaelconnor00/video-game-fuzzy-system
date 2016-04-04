@@ -435,7 +435,7 @@ public class MainController extends Application {
                 if(reviewBox.getValue().equals("Game was too short")){
                     newloveList[4]=dec(loveList[4+1]);
                     newlikeList[4]=dec(likeList[4+1]);
-                    newhateList[4]=inc(hateList[2+1]);
+                    newhateList[4]=inc(hateList[4+1]);
                 }else{
                     newloveList[4]=inc(loveList[4+1]);
                     newlikeList[4]=inc(likeList[4+1]);
