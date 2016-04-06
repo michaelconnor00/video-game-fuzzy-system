@@ -23,7 +23,8 @@ public class GenreEngine {
 
         this.rankedGenres = new ArrayList<>();
 
-        for (Genre genre_fcl : Genre.values()){
+        Genre genre_fcl = Genre.ROLEPLAYING; // For testing
+//        for (Genre genre_fcl : Genre.values()){
             System.out.println(genre_fcl.getFileName());
             // Load the Fuzzy system from the FCL file for that genre.
             FIS fis = FIS.load(genre_fcl.getFileName(), true);
@@ -44,14 +45,18 @@ public class GenreEngine {
             fis.setVariable("planning", planning);
             fis.setVariable("teamwork", teamwork);
 
+//            fis.chart();
+
             // Run the Fuzzy system
             fis.evaluate();
+//            fis.getVariable("compatibility").getLatestDefuzzifiedValue();
+            fis.getVariable("compatibility").chartDefuzzifier(true);
+            System.out.println(fis);
 
             // Get the output from fuzzy systems and add to the List.
             double outputValue = fis.getVariable("compatibility").getLatestDefuzzifiedValue();
             addToList(genre_fcl, outputValue);
-            System.out.println("Output Value: " + outputValue);
-        }
+//        }
 
         return this.rankedGenres;
     }
